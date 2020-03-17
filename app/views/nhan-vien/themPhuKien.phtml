@@ -1,0 +1,132 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Thêm sản phẩm
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a class="menu" href="#">Quản lý sản phẩm</a></li>
+            <li class="active">Thêm sản phẩm</li>
+            <select id="listSP" style="float: right; border: none;">
+                <option>Phụ kiện</option>
+                <option>Điện thoại</option>
+                <option>Sửa chữa</option>
+            </select>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table width="100%" id="tblThemTT">
+                <tr style="height: 50px">
+                    <th colspan="2"><h2 style="">THÊM PHỤ KIỆN</h2></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Mã Sản phẩm: <i style="color: red">*</i></th>
+                    <td><input type="text" id="maSP" class="form-control form-control-lg" name="maSP" placeholder="Nhập mã sản phẩm" aria-describedby="basic-addon1" required="">
+                        <div class="thonBaoMaSP" style="color: red"></div>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Tên sản phẩm: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="tenSP" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Loại: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="loai" placeholder="Nhập loai sản phẩm. vd: cap-sac, tai-nghe, sac-du-phong..." aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hãng: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="hang" placeholder="Nhập hãng sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Model: </th>
+                    <td><input type="text" class="form-control form-control-lg" name="model" placeholder="Phụ kiện này dành riêng cho model" ></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Số lượng: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="soLuong" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Giao tiếp:</th>
+                    <td><input type="text" class="form-control form-control-lg" name="giaoTiep" placeholder="Nhập phương thức giao tiếp" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Màu sắc:</th>
+                    <td>
+                        <input type="text" id="inputMau" class="form-control form-control-lg" name="mauSac" placeholder="Các màu phân cách bằng dấu phẩy (,)">
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Giá: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="gia" placeholder="Giá các màu cách nhau bởi dấu phẩy (,)" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hình ảnh:<i style="color: red">*</i></th>
+
+                    <td id="addImg"><input type="file" class="" name="file" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2">
+                        <input style="width: 100%;" id="themSP" type="submit" name="themSPPK" value="Thêm sản phẩm">
+                    </th>
+                </tr>
+            </table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php
+$vitri=2;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#listSP').change(function () {
+            var menu= $('#listSP').val();
+            if (menu == "Điện thoại") {
+                window.location.href = 'http://localhost/tmobile/nhan-vien/themsp';
+            }else{
+                if (menu == "Phụ kiện") {
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/themPhuKien';
+                }else{
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/themSuaChua';
+                }
+            }
+
+        })
+        $("#inputMau").change(function () {
+            var listMau = $("#inputMau").val().split(",");
+            var listMauChuan=[];
+            var j =0;
+            for (var i=0; i<listMau.length; i++){
+                if (listMau[i].trim().length >=1){
+                    listMauChuan[j] = listMau[i].trim().replace(/ /g,"_");
+                    j++;
+                }
+            }
+            console.log(listMauChuan);
+
+            $("#addImg").empty();
+            for (var i=0; i<listMauChuan.length; i++){
+                var str ='Ảnh màu '+listMauChuan[i].trim()+'<input type="file" class="" name="file_'+listMauChuan[i].trim()+'" aria-describedby="basic-addon1" required="">';
+                $("#addImg").append(str);
+            }
+        });
+        $("#maSP").change(async function () {
+            var maSPC = $("#maSP").val();
+            var loaiSPC = $("#listSP").val();
+            await $.get("http://localhost/tmobile/nhan-vien/checkMaSP",{maSP:maSPC,loaiSP:loaiSPC},function (data) {
+                $(".thonBaoMaSP").html(data);
+            });
+            var thongBaoKT = $(".thonBaoMaSP").html();
+            if (thongBaoKT.length >0){
+                $('#themSP').prop('disabled', true);
+            }else{
+                $('#themSP').prop('disabled', false);
+            }
+        });
+    });
+</script>

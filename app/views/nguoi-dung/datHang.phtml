@@ -1,0 +1,16 @@
+<meta http-equiv="refresh" content="10;url=http://localhost/tmobile/">
+<section class="product-box">
+    <?php
+        if (isset($ketQua)){
+            echo '
+                <p>Chúc mừng bạn đã đặt hàng thành công lúc: '.$ketQua.'</p>
+                <span>Bạn sẽ được tự động chuyển hướng trong 10s. Hoặc <a style="color: red" href="http://loaclhost/tmobile">ấn vào đây</a> để quay lại</span>
+            ';
+        }else{
+            echo '
+                <p style="color = red">*Có lỗi xảy ra! Không thể thực hiện đặt hàng. Hãy thử lại sau.</p>
+                <span>Bạn sẽ được tự động chuyển hướng trong 5s. Hoặc <a href="http://loaclhost/tmobile">ấn vào đây để quay lại</a></span>
+            ';
+        }
+    ?>
+</section>

@@ -1,0 +1,337 @@
+<?php $this->assets->outputCss('csspk'); ?>
+
+<section class="container">
+    <div class="breadcrumb">
+        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="http://localhost/tmobile/"><span itemprop="name">Trang chủ</span></a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="http://localhost/tmobile/phu-kien/"><span itemprop="name">Phụ kiện</span></a>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ul>
+    </div> 
+    <div class="product-title">
+        <h1 class="title"><?php echo $data['tenSP']; ?></h1>
+        <div class="rating-show-start">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <a href="#" class="rating-show-count">(<span>0</span> đánh giá)</a>
+        </div> 
+    </div>
+    <div class="product-content-box">
+        <div class="product-slide-image">
+            <ul id="image-gallery" class="gallery list-unstyled">
+                <li data-thumb="/tmobile/files/hinh-sp/<?php echo $listHinh[0]; ?>" data-src="/tmobile/files/hinh-sp/<?php echo $listHinh[0]; ?>" data-sub-html="<?php echo $data['tenSP']; ?>">
+                    <a href="#">
+                        <img src="/tmobile/files/hinh-sp/<?php echo $listHinh[0]; ?>" alt="<?php echo $listHinh[0]; ?>" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="product-price-box">
+            <div class="product-price-content">
+                <div class="price-and-color">
+                    <p class="price"><?php echo number_format($listGia[0]); ?> ₫</p>
+                </div>
+                <div class="custom-param-list">
+                    <div class="status-box">
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                        <?php
+                            if ($data['soLuong'] > 0){
+                                echo 'Còn hàng';
+                            }else{
+                                echo 'Hết hàng';
+                            }
+                        ?>
+
+                    </div>
+                </div>
+                <div class="warranty-box">
+                    <p>Chế độ bảo hành </p>
+                    <select class="warranty">
+                        <option value="0">Bảo hành mặc định</option>
+                    </select>
+                    <a href="https:///page/chinh-sach-bao-hanh.html" id="about_warranty_link" target="_blank">
+                        <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                        <div id="text-tooltips">
+                            <span class="tips"></span>
+                            <p>Tìm hiểu thêm về bảo hành vàng.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="sale-box">
+                <p class="sale-box-title">Thông tin cơ bản</p>
+                <ul>
+                    <li>Miễn phí cài đặt phần mềm</li>
+                    <li>Tặng tấm dán màn hình chống xước</li>
+                    <li>Tặng Gift Cards giảm giá sửa chữa <span style="color: #ff0000;">50.000₫</span></p></li>
+                </ul>
+            </div>
+            <div class="product-info-general">
+                <ul>
+                </ul>
+            </div>
+            <div class="buy-box">
+                <a href="javascript:;" class="buy-now">Mua ngay <span>Giao hàng tận nơi miễn phí</span></a>
+            </div>
+            <div class="product-address">
+                <span><strong>0989.898.989</strong> (BG)</span>
+                <span><strong>0968.686.868</strong> (TN)</span>
+            </div>
+        </div>
+        <div class="accessories-related-box">
+            <div class="accessories-related-content">
+                <?php
+                    foreach ($dataPKGY as $item){
+                        echo '
+                            <div class="accessories-related-item">
+                                <div class="accessories-related-item-image">
+                                <a target="_blank" href="http://localhost/tmobile/phu-kien/sanpham/'.$item['maSP'].'">
+                                    <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'">
+                                </a>
+                                </div>
+                                <div class="accessories-related-item-info">
+                                    <p class="name"><a target="_blank" href="http://localhost/tmobile/phu-kien/sanpham/'.$item['maSP'].'">'.$item['tenSP'].'</a></p>
+                                    <p class="price">'.number_format($item['gia']).' ₫</p>
+                                    <a target="_blank" href="http://localhost/tmobile/phu-kien/sanpham/'.$item['maSP'].'" class="buy">Mua</a>
+                                </div>
+                            </div>
+                        ';
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="product-content-box fix-content-right">
+        <div class="product-content-left">
+
+            <div class="comment-box" id="comment">
+                <div class="comment-box-title">
+                    <h4>Đánh giá <?php echo $data['tenSP'];?></h4>
+                    <input type="hidden" id="maSP" value="<?php echo $data['maSP'];?>">
+                </div>
+                <div class="comment-vote">
+                    <div class="comment-vote__star">
+                        <div class="comment-vote__star-number">5/5</div>
+                        <div class="comment-vote__star-star">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="comment-vote__star-total">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="comment-vote__percent">
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">5 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['5Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['5Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">4 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['4Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['4Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">3 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['3Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['3Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">2 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['2Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['2Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">1 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['1Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['1Sao'] ?></div>
+                        </div>
+                    </div>
+                    <div class="comment-vote__btn">
+                        <p>Bạn có vấn đề cần tư vấn?</p>
+                        <a href="javascript:;" id="show-comment-form">Gửi đánh giá</a>
+                    </div>
+                </div>
+                <div class="comment-form">
+                    <form action="" name="comment-form-client">
+                        <div class="product-rating">
+                            <p>Bạn chấm sản phẩm này bao nhiêu sao? </p>
+                            <input type="hidden" id="rating" value="5" name="rating">
+                            <div class="rating-star">
+                                <i class="fa start fa-star" data-value="1" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="2" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="3" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="4" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="5" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="comment-content-text">
+                            <textarea name="content" id="content" placeholder="Mời bạn để lại đánh giá,bình luận (Vui lòng nhập tiếng việt có dấu)"></textarea>
+                        </div>
+                        <div class="comment-name-and-email">
+                            <input type="text" name="name" id="name" placeholder="Họ và Tên..." aria-describedby="basic-addon1" required="">
+                            <input type="text" name="phone" id="phone" placeholder="Số siện thoại" aria-describedby="basic-addon1" required="">
+                            <input type="email" name="email" id="email" placeholder="Email" aria-describedby="basic-addon1" required="">
+                        </div>
+                        <div class="comment-btn">
+                            <button type="button" id="btnGui">Gửi</button>
+                            <a href="javascript:;" id="close-comment-form"><i class="fa fa-remove" aria-hidden="true"></i> Hủy</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="comment-search">
+                    <input type="text" name="search_comment" id="search_comment" placeholder="Tìm theo nội dung, người gửi,...">
+                </div>
+                <div class="comment-list">
+                    <?php
+                    if (isset($dataDanhGia)){
+                        foreach ($dataDanhGia as $item){
+                            echo '
+                                <div class="comment-item">
+                                    <div class="comment-avatar">
+                                        <span class="avatar">X</span>
+                                    </div>
+                                    <div class="comment-info">
+                                        <div class="comment-title">
+                                            <div class="comment-name">
+                                                <p class="name">'.$item['hoTen'].'</p>
+                                                <p class="phone">'.substr($item['sdt'],0,7).'xx</p>
+                                            </div>
+                                            <div class="comment-star">';
+                            for ($k=1;$k<=5;$k++){
+                                if ($k <= $item['soSao']){
+                                    echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                }else{
+                                    echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+                                }
+
+                            }
+                            echo '  
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="comment-content">'.$item['noiDung'].'</div>
+                                        <div class="comment-footer">
+                                            <p class="time">'.$item['ngayDang'].'</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        }
+                    }
+                    ?>
+
+                </div>
+                <div class="comment-pagination">
+                    <ul id="pagination"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="product-content-right">
+            <div class="product-summary">
+                <p class="product-summary-title"><?php echo $data['tenSP'] ?></p>
+                <p class="product-summary-price"><?php echo number_format($listGia[0]); ?> ₫</p>
+                <div class="sale-box">
+                    <p class="sale-box-title">Thông tin cơ bản</p>
+                    <ul>
+                        <li>Miễn phí cài đặt phần mềm</li>
+                        <li>Tặng tấm dán màn hình chống xước</li>
+                        <li>Tặng Gift Cards giảm giá sửa chữa <span style="color: #ff0000;">50.000₫</span></p></li>
+                    </ul>
+                </div>
+                <div class="buy-box">
+                    <a href="javascript:;" class="buy-now">Mua ngay <span>Giao hàng tận nơi miễn phí</span></a>
+                </div>
+                <div class="product-summary-address">
+                    <span><strong>0989.898.989</strong> (BG)</span>
+                    <span><strong>0968.686.868</strong> (TN)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="popup">
+    <div class="popup_title">
+        <p class="title">Đặt mua <?php echo $data['tenSP'] ?></p>
+        <span class="popup_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+    </div>
+    <div class="popup_main">
+        <div class="popup_product_info">
+            <div class="popup-product-image">
+                <img src="/tmobile/files/hinh-sp/<?php echo $listHinh[0];?>" alt="<?php echo $listHinh[0];?>" />
+            </div>
+            <p class="popup_product_title"><?php echo $data['tenSP'] ?></p>
+            <p class="popup_product_price"><?php echo number_format($listGia[0]) ?> ₫</p>
+            <div class="clearfix"></div>
+            <div class="popup-warranty-box">
+                <p>Chế độ bảo hành </p>
+                <select class="popup-warranty">
+                    <option value="0">Bảo hành mặc định</option>
+                </select>
+            </div>
+        </div>
+        <div class="popup_customer_info">
+            <p class="popup_customer_info_title">Thông tin người mua</p>
+            <form action="http://localhost/tmobile/nguoi-dung/datHang/" method="post">
+                <select id="customer-gender" name="customer-gender">
+                    <option value="1">Anh</option>
+                    <option value="2">Chị</option>
+                </select>
+                <input type="text" id="customer-name" name="ten" placeholder="Họ tên bạn (bắt buộc)" aria-describedby="basic-addon1" required="">
+                <input type="text" id="customer-phone" name="sdt" placeholder="Số điện thoại (bắt buộc)" aria-describedby="basic-addon1" required="">
+                <input type="text" id="customer-email" name="email" placeholder="Địa chỉ email (bắt buộc)" aria-describedby="basic-addon1" required="">
+                <input type="hidden" name="danhMuc" class="danhMuc" value="PhuKien">
+                <input type="hidden" name="cheDoBH" class="cheDoBH" value="0">
+                <input type="hidden" name="maSP" value="<?php echo $data['maSP'];?>">
+                <input type="hidden" name="mauSac" class="mauSac" value="0">
+                <select id="customer-location" name="customer-location">
+                    <option value="1" selected>Bắc Giang</option>
+                    <option value="2">Thái Nguyên</option>
+                </select>
+                <textarea id="customer-address" name="diaChiNhanHang" placeholder="Địa chỉ nhận hàng" aria-describedby="basic-addon1" required=""></textarea>
+                <textarea id="order-note" name="ghiChu" placeholder="Ghi chú đơn hàng"></textarea>
+                <button class="btn-submit-buynow" data-id="561">Đặt hàng ngay</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#btnGui").click(function () {
+            var content = $("#content").val();
+            var soSao = $("#rating").val();
+            var tenND = $("#name").val();
+            var sdt = $("#phone").val();
+            var email = $("#email").val();
+            var maSP =$("#maSP").val();
+            if (sdt.length <=0){
+                alert("Bạn cần nhập số điện thoại đã mua sản phẩm này để đánh giá!");
+                return 0;
+            }
+            $.post("http://localhost/tmobile/nguoi-dung/danhGia",{maSP:maSP,soSao:soSao,hoTen:tenND,sdt:sdt,noiDung:content},function (data) {
+                alert(data);
+            });
+        })
+    })
+</script>

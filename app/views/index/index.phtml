@@ -1,0 +1,319 @@
+<?php $this->assets->outputJs('jsindex'); ?>
+<section class="featured">
+        <div class="slideshow">
+        <div class="owl-carousel owl-theme">
+            <?php
+                $sl=0;
+                foreach ($dataBN as $item){
+                    if ($item['viTri'] == 1){
+                        echo '
+                            <div class="item">
+                                <a href="'.$item['link'].'">
+                                <img src="/tmobile/files/slideshow/'.$item['hinhAnh'].'">
+                                </a>
+                            </div>
+                        ';
+                        $sl++;
+                    }
+                    if ($sl >5 ){
+                        break;
+                    }
+                }
+            ?>
+        </div>
+    </div>
+    <div class="featured-slide-video">
+        <ul id="slider_video_home">
+            <?php
+                $sl=0;
+                for ($j=0;$j<count($dataBN);$j++){
+                    if ($dataBN[$j]['viTri'] == 2){
+                        echo '
+                            <li id="video" ><a href="'.$dataBN[$j]['link'].'"><img src="/tmobile/files/slideshow/'.$dataBN[$j]['hinhAnh'].'" > </a></li>
+                        ';
+                        $sl++;
+                    }
+                    if ($sl >= 2){
+                        break;
+                    }
+                }
+            ?>
+        </ul>
+    </div>
+</section>
+<section class="product-box">
+    <div class="product-box-top">
+        <div class="product-category">
+            <p>Hãng</p>
+            <ul>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Apple%%27">Apple (iPhone)</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Samsung%%27">Samsung</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%OnePlus%%27">OnePlus</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Xiaomi%%27">Xiaomi</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%OPPO%%27">OPPO (Realme)</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%LG%%27">LG</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Asus%%27">Asus</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Nokia%%27">Nokia</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Google%%27">Google</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Meizu%%27">Meizu</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Vsmart%%27">Vsmart</a>
+                </li>
+                <li><a href="http://localhost/tmobile/dien-thoai?hang_LIKE_%27%Sony%%27">Sony</a>
+            </ul>
+            <select id="go_phone_made">
+                <option data-link="category.html">Hãng khác</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-sky">Sky</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-htc">HTC</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-blackberry">BlackBerry</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-lenovo">Lenovo</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-bkav">BKAV</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-nomi">Nomi</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-huawei">Huawei</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-inwatch">InWatch</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-obi-worlphone">Obi Worlphone</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-letv">LeTV</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-zte">ZTE (Nubia)</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-vivo">Vivo</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-leeco">LeEco</option>
+                <option data-link="https://localhost/tmobile/dien-thoai-oukitel">Oukitel</option>
+            </select>
+        </div>
+        <div class="sort-price">
+            <select id="order_phone">
+                <option data-link="https://localhost/tmobile/dien-thoai?order=desc">Giá từ cao đến thấp</option>
+                <option data-link="https://localhost/tmobile/dien-thoai?order=asc">Giá từ thấp đến cao</option>
+            </select>
+        </div>
+    </div>
+    <div class="product-list">
+        <?php
+            foreach ($dataDT as $item){
+                echo '
+                    <div class="product-list-item">
+                        <div class="product-item-image">
+                            <div class="hot-and-new">
+                            </div>
+                            <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">
+                                <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'">
+                            </a>
+                            <div class="mask">
+                                <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">
+                                <div class="mask-title">
+                                    <div class="icon"></div>
+                                    <div class="text">TMobile care</div>
+                                </div>
+                                <ul class="mask-list">
+                                    <li>BH 12 tháng nguồn, màn hình</li>
+                                    <li>Đổi mới 30 ngày đầu tiên</li>
+                                    <li>Tặng ốp lưng, dán cường lực</li>
+                                    <li>Hỗ trợ phần mềm trọn đời máy</li>
+                                </ul>
+                                </a>
+                                <a class="mask-link" target="_blank" title="Xem chi tiết chính sách bảo hành tại TMobile" href="/page/chinh-sach-bao-hanh.html">Bảo hành vàng</a>
+                            </div>
+                        </div>
+                        <div class="product-item-info">
+                            <div class="product-item-left">
+                                <p class="name"><a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">'.$item['tenSP'].'</a></p>
+                                <p class="price">'.number_format($item['gia'],0).' ₫</p>
+                            </div>
+                            <div class="product-item-right">
+                                <div class="all-icon icon-promotion"></div>
+                                <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                            </div>
+                            <div class="product-item-full-width">
+                                <ul>
+                                    <li><p>1. Tặng: <span style="color: #ff0000;">Cường lực -</span> <span style="color: #ff0000;">Ốp lưng - Tai nghe</span> khi mua BHV</p></li>
+                                    <li><p>2. Giảm: <span style="color: #ff0000;">100K</span> áp dụng HSSV mua BHV tại chi nhánh<span style="color: #ff0000;"> Thái Nguyên</span></p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
+        ?>
+        
+    </div>
+    <div class="viewmore">
+    <a class="xemALL" href="http://localhost/tmobile/dien-thoai" id="home_view_more_product" data-type="phones" data-location="1" data-count="15">Xem tất cả điện thoại</a>
+    </div>
+</section>
+<section class="banner-box">
+    <?php
+        foreach ($dataBN as $item){
+            $sl=0;
+            if ($item['viTri'] == 3 ){
+                echo '
+                    <div class="banner-item">
+                            <a href="'.$item['link'].'"><img class="lazy" data-original="/tmobile/files/slideshow/'.$item['hinhAnh'].'"></a>
+                    </div>
+                ';
+                $sl++;
+                if ($sl>=2){
+                    break;
+                }
+            }
+        }
+    ?>
+</section>
+<section class="product-box">
+    <div class="product-box-top">
+        <div class="product-category accessories-category">
+            <p>Phụ kiện</p>
+            <ul>
+                <li><a href="https://localhost/tmobile/phu-kien-tai-nghe">Loa - Tai nghe</a></li>
+                <li><a href="https://localhost/tmobile/phu-kien-dong-ho-thong-minh">Đồng hồ thông minh</a></li>
+                <li><a href="https://localhost/tmobile/phu-kien-pin-sac-du-phong">Pin, Sạc dự phòng</a></li>
+                <li><a href="https://localhost/tmobile/phu-kien-iphone">Phụ kiện iPhone</a></li>
+                <li><a href="https://localhost/tmobile/phu-kien-do-choi-cong-nghe">Đồ chơi công nghệ</a></li>
+                <li><a href="https://localhost/tmobile/phu-kien-xiaomi">Phụ kiện Xiaomi</a></li>
+                <li><a href="https://localhost/tmobile/phu-kien-may-loc-khong-khi">Máy lọc không khí</a></li>
+                <li><a href="https://localhost/tmobile/phu-kien-sony">Phụ kiện Sony</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="product-list">
+        <?php
+            foreach ($dataPK as $item){
+                echo '
+                    <div class="accessories-list-item">
+                        <div class="accessories-item-image">
+                            <a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'">
+                                <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'">
+                            </a>
+                        </div>
+                        <div class="accessories-item-info">
+                            <p class="name"><a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'" title="Xiaomi Mi Band 4">'.$item['tenSP'].'</a></p>
+                            <div class="accessories-item-left">
+                                <p class="price">'.number_format($item['gia'],0).' ₫</p>
+                            </div>
+                            <div class="accessories-item-right">
+                                <a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
+        ?>
+    </div>
+    <div class="viewmore">
+        <a class="xemALL" href="http://localhost/tmobile/phu-kien" data-type="fits" data-count="16">Xem tất cả Phụ kiện</a>
+    </div>
+</section>
+<section class="banner-box">
+    <?php
+    foreach ($dataBN as $item){
+        $sl=0;
+        if ($item['viTri'] == 4 ){
+            echo '
+                    <div class="banner-item">
+                            <a href="'.$item['link'].'"><img class="lazy" data-original="/tmobile/files/slideshow/'.$item['hinhAnh'].'"></a>
+                    </div>
+                ';
+            $sl++;
+            if ($sl>=2){
+                break;
+            }
+        }
+    }
+    ?>
+<!--    <div class="banner-item">-->
+<!--        <a href="https://localhost/tmobile/phu-kien/tai-nghe-airpods-pro-rep-1-1.html"><img class="lazy" data-original="https://sudospaces.com/mobilecity-vn/images/2019/11/tai-nghe-1.jpg"></a>-->
+<!--    </div>-->
+<!--    <div class="banner-item">-->
+<!--        <a href="https://localhost/tmobile/phu-kien/tai-nghe-bluetooth-i27-pro.html"><img class="lazy" data-original="https://sudospaces.com/mobilecity-vn/images/2019/11/tai-nghe-2.jpg"></a>-->
+<!--    </div>-->
+</section>
+<section class="product-box">
+    <div class="product-box-top">
+        <div class="product-category service-category">
+            <p>Dịch vụ sửa chữa</p>
+            <ul>
+                <li><a href="https://localhost/tmobile/sua-chua-iphone">iPhone</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-dien-thoai-xiaomi">Xiaomi</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-samsung">Samsung</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-oppo">Oppo</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-realme">Realme</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-honor">Honor</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-ipad">iPad</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-sony">Sony</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-htc">HTC</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-lg">LG</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-asus">Asus</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-blackberry">Blackberry</a></li>
+                <li><a href="https://localhost/tmobile/sua-chua-Vivo">Vivo</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="product-list">
+        <?php
+            foreach ($dataSC as $item){
+                echo '
+                    <div class="service-list-item">
+                        <div class="service-item-image">
+                            <a href="https://localhost/tmobile/dich-vu/thay-mat-kinh-iphone-7-7-plus-1028.html">
+                                <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" style="" alt="'.$item['hinhAnh'].'">
+                            </a>
+                            <a href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/'.$item['maSP'].'">
+                            <div class="mask-service">
+                                <ul>
+                                    <li>Miễn phí cài đặt phần mềm</li>
+                                    <li>Tặng tấm dán màn hình chống xước</li>
+                                    <li>Tặng Gift Cards giảm giá sửa chữa <span style="color: #ff0000;">50.000₫</span></p></li>
+                                </ul>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="service-item-info">
+                            <div class="service-item-left">
+                                <p class="name"><a href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/'.$item['maSP'].'" title="'.$item['tenSP'].'">'.$item['tenSP'].'</a></p>
+                                <p class="price">'.number_format($item['gia'],0).' ₫</p>
+                            </div>
+                            <div class="service-item-right">
+                                <a href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
+        ?>
+    </div>
+    <div class="viewmore">
+    <a class="xemALL" href="http://localhost/tmobile/sua-chua-dien-thoai" data-type="services" data-count="15">Xem tất cả dịch vụ sửa chữa</a>
+    </div>
+</section>
+<section class="news-box">
+    <div class="news-item">
+        <div class="news-item-image">
+        </div>
+        <div class="news-item-main">
+        </div>
+    </div>
+</section>
+<style>
+    .xemALL{
+        display: block;
+        width: 300px;
+        text-align: center;
+        color: #9c834c;
+        border-radius: 5px;
+        padding: 8px 0;
+        transition: .5s all ease;
+        margin: 0 auto;
+        border: 1px solid #9c834c;
+        box-sizing: border-box;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+</style>

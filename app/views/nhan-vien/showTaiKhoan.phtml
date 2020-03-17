@@ -1,0 +1,48 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Tất cả tài khoản
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý sản phẩm</a></li>
+		 	<li class="active">Tất cả sản phẩm</li>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb" method="post" enctype="multipart/form-data">
+			<table style="width: 100%; ">
+				<tr>
+					<td style="border-bottom: 1px solid #f3e4e4; padding-bottom: 5px;" colspan="5">
+			            <input style="width: 90%" type="text" name="keyword" id="keyword_mobile" autocomplete="off" placeholder="Tìm kiếm nhân viên ...">
+			            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+
+					</td>
+				</tr>
+				<tr>
+					<th>Tên tài khoản</th>
+					<th>Tên nhân viên</th>
+					<th>Năm sinh</th>
+					<th>Giới tính</th>
+					<th>Hành động</th>
+				</tr>
+                <?php
+                    foreach ($data as $item){
+                        echo '
+                            <tr>
+                                <td>'.$item['username'].'</td>
+                                <td>'.$item['tenNV'].'</td>
+                                <td>'.$item['namSinh'].'</td>
+                                <td>'.$item['gioiTinh'].'</td>
+                                <td><a href="http://localhost/tmobile/nhan-vien/xoaNV?username='.$item["username"].'" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Xóa</a></td>
+                            </tr>
+                        ';
+                    }
+                ?>
+			</table>
+		</form>
+	</div>
+</div>
+<?php
+	$vitri=3;
+?>

@@ -1,0 +1,85 @@
+<div id="page-wrapper">
+	<div class="header">
+        <h1 class="page-header">
+            Tạo tài khoản nhân viên
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý tài khoản</a></li>
+		 	<li class="active">Tạo tài khoản</li>
+		</ol>
+	</div>
+	<div id="page-inner">
+		<form style="max-width: 700px; margin: auto;" class="breadcrumb" method="post" enctype="multipart/form-data">
+			<table width="100%" id="tblThemTT">
+				<tr style="height: 50px">
+					<th colspan="2"><h2 style="">Tạo tài khoản</h2></th>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Tên nhân viên: <i style="color: red">*</i></th>
+					<td><input type="text" name="tenNV" class="form-control form-control-lg" placeholder="Nhập tên nhân viên" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Năm sinh: <i style="color: red">*</i></th>
+					<td><input type="number" name="namSinh" class="form-control form-control-lg" placeholder="Nhập năm sinh" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Giới tính: <i style="color: red">*</i></th>
+					<td><input type="text" name="gioiTinh" class="form-control form-control-lg" placeholder="Nhập giới tính" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Username: <i style="color: red">*</i></th>
+					<td><input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Nhập username" aria-describedby="basic-addon1" required="">
+                        <span style="color:red;" class="thonBaoUsername"></span>
+                    </td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Password: <i style="color: red">*</i></th>
+					<td><input type="password" name="password" class="form-control form-control-lg" placeholder="Nhập password" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Số điện thoại: <i style="color: red">*</i></th>
+					<td><input type="text" name="sdt" class="form-control form-control-lg" placeholder="Nhập password" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Email: <i style="color: red">*</i></th>
+					<td><input type="email" name="email" class="form-control form-control-lg" placeholder="Nhập password" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Nhập mật khẩu QTV: <i style="color: red">*</i></th>
+					<td><input type="password" name="passwordQTV" class="form-control form-control-lg" placeholder="Nhập password QTV" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+
+				<tr style="height: 50px">
+					<th colspan="2">
+						<input style="width: 100%;" type="submit" id="taoTaiKhoan" name="taoTaiKhoan" value="Tạo tài khoản">
+					</th>
+
+				</tr>
+			</table>
+            <span style="color: red"><?php if (isset($ketQua)) echo $ketQua;?></span>
+		</form>
+	</div>
+</div>
+<?php
+	$vitri=3;
+
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+        $("#username").change(async function () {
+            var username = $("#username").val();
+            await $.get("http://localhost/tmobile/nhan-vien/checkUsername",{username:username},function (data) {
+                $(".thonBaoUsername").html(data);
+            });
+            var thongBaoKT = $(".thonBaoUsername").html();
+            if (thongBaoKT.length >0){
+                $('#taoTaiKhoan').prop('disabled', true);
+            }else{
+                $('#taoTaiKhoan').prop('disabled', false);
+            }
+        });
+
+	});
+</script>

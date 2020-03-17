@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cd6dcca7-f524-4cf7-844a-1cc458d6a4ee" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1Xyf1uDEdpoXlHTk5HbzPkgh6DS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/nguoi-dung" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\tmobile\app\views\nguoi-dung" />
+      <recent name="C:\xampp\htdocs\tmobile\app\views\nhan-vien" />
+      <recent name="C:\xampp\htdocs\tmobile\public\files" />
+      <recent name="C:\xampp\htdocs\tmobile\public\files\hinh-sp" />
+      <recent name="C:\xampp\htdocs\tmobile\app\library" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\tmobile\public\files\slideshow" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cd6dcca7-f524-4cf7-844a-1cc458d6a4ee" name="Default Changelist" comment="" />
+      <created>1582023042487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582023042487</updated>
+      <workItem from="1582023044046" duration="112000" />
+      <workItem from="1582023173822" duration="118000" />
+      <workItem from="1582031505256" duration="5096000" />
+      <workItem from="1582079390290" duration="22394000" />
+      <workItem from="1582115096238" duration="4242000" />
+      <workItem from="1582163567504" duration="24617000" />
+      <workItem from="1582249923617" duration="25162000" />
+      <workItem from="1582301376383" duration="5018000" />
+      <workItem from="1582338244589" duration="22863000" />
+      <workItem from="1582442033878" duration="17780000" />
+      <workItem from="1582509994329" duration="28242000" />
+      <workItem from="1582560777880" duration="4452000" />
+      <workItem from="1582620056471" duration="19454000" />
+      <workItem from="1582682847025" duration="24605000" />
+      <workItem from="1582722842311" duration="3571000" />
+      <workItem from="1582808378964" duration="5568000" />
+      <workItem from="1582854234899" duration="24342000" />
+      <workItem from="1582943865202" duration="1575000" />
+      <workItem from="1583025925916" duration="2264000" />
+      <workItem from="1583047781281" duration="13938000" />
+      <workItem from="1583115107314" duration="5100000" />
+      <workItem from="1583134675020" duration="6659000" />
+      <workItem from="1583200253981" duration="6746000" />
+      <workItem from="1583290725045" duration="13835000" />
+      <workItem from="1583374568208" duration="5991000" />
+      <workItem from="1583635803684" duration="10401000" />
+      <workItem from="1584020822282" duration="2120000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="179" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582102944578">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="451" y="179" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1582102944578" />
+    <state x="485" y="88" key="#com.intellij.ide.util.MemberChooser" timestamp="1583646699892">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="485" y="88" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1583646699892" />
+    <state x="437" y="20" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583651740753">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="437" y="20" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1583651740753" />
+    <state x="463" y="127" key="FileChooserDialogImpl" timestamp="1582252649573">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1582252649573" />
+    <state x="495" y="203" key="NewPhpClassDialog" timestamp="1582356218480">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="495" y="203" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1582356218480" />
+    <state x="459" y="518" key="NewPhpFileDialog" timestamp="1583651545808">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="459" y="518" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1583651545808" />
+    <state x="98" y="15" key="SettingsEditor" timestamp="1583374831748">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="98" y="15" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1583374831748" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1582624965104">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1582624965104" />
+    <state x="339" y="165" key="run.anything.popup" timestamp="1582377490996">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1582377490996" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1583651649869">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1583651649869" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/views/nhan-vien/showDonHangMoi.phtml</url>
+          <line>68</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/views/nhan-vien/index.phtml</url>
+          <line>101</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/views/dien-thoai/sanPham.phtml</url>
+          <line>301</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

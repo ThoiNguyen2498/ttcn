@@ -1,0 +1,209 @@
+<?php $this->assets->outputCss('cssmtb'); ?>
+<div class="breadcrumb">
+    <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn"><span itemprop="name">Trang chủ</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn/may-tinh-bang"><span itemprop="name">Máy tính bảng</span></a>
+            <meta itemprop="position" content="2" />
+        </li>
+    </ul>
+</div>
+<div class="intro-category">
+    <h1 class="intro-category-title">Máy tính bảng</h1>
+</div>
+<section class="product-box">
+    <div class="product-fillter-box">
+        <ul>
+            <li>Tìm theo</li>
+            <li>
+                <select id="locGia" class="selectLoc">
+                    <option value="all">Mức giá</option>
+                    <option value="phanKhuc<1999999">Dưới 2 triệu</option>
+                    <option value="phanKhuc>1999999_AND_phanKhuc<4000001">Từ 2 - 4 triệu</option>
+                    <option value="phanKhuc>4000001_AND_phanKhuc<6000001">Từ 4 - 6 triệu</option>
+                    <option value="phanKhuc>6000001_AND_phanKhuc<8000001">Từ 6 - 8 triệu</option>
+                    <option value="phanKhuc>8000001_AND_phanKhuc<10000001">Từ 8 - 10 triệu</option>
+                    <option value="phanKhuc>10000001">Trên 10 triệu</option>
+
+                </select>
+            </li>
+            <li>
+                <select id="locHang" class="selectLoc">
+                    <option value="all">Hãng sản xuất</option>
+                    <option value="Apple">Apple</option>
+                    <option value="SamSung">SamSung</option>
+                    <option value="Xiaomi">Xiaomi</option>
+                    <option value="Lenovo">Lenovo</option>
+                </select>
+            </li>
+            <li>
+                <select id="locHDH" class="selectLoc">
+                    <option value="all">Hệ điều hành</option>
+                    <option value="Android">Android</option>
+                    <option value="IOS">IOS (iphone)</option>
+                    <option value="Window_Phone">Window Phone</option>
+                    <option value="khac">HĐH khác</option>
+                </select>
+            </li>
+            <li>
+                <select id="locManHinh" class="selectLoc">
+                    <option value="all">Màn hình</option>
+                    <option value="doRongManHinh<4">Dưới 4 inch</option>
+                    <option value="doRongManHinh>4_AND_doRongManHinh<5">Từ 4 đến 5 inch</option>
+                    <option value="doRongManHinh>5_AND_doRongManHinh<7">Từ 5 - 7 inch</option>
+                    <option value="doRongManHinh>7">Trên 7 inch</option>
+                </select>
+            </li>
+            <li>
+                <select id="sapXep" class="selectLoc">
+                    <option value="all">Sắp Xếp</option>
+                    <option value="phanKhuc_ASC">Giá từ thấp đến cao</option>
+                    <option value="phanKhuc_DESC">Giá từ cao đến thấp</option>
+                    <option value="tenSP_ASC">Tên A-Z</option>
+                    <option value="tenSP_DESC">Tên Z-A</option>
+                </select>
+            </li>
+            <li>
+                <input type="button" id="btnLoc" class="btnLoc" value="Áp dụng">
+            </li>
+            <li>
+            </li>
+        </ul>
+    </div>
+    <div class="product-list">
+        <?php
+            if (is_array($dataDT)){
+                foreach ($dataDT as $item){
+                    echo '
+                    <div class="product-list-item">
+                        <div class="product-item-image">
+                            <div class="hot-and-new">
+                            </div>
+                            <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">
+                                <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'">
+                            </a>
+                            <div class="mask">
+                                <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">
+                                <div class="mask-title">
+                                    <div class="icon"></div>
+                                    <div class="text">TMobile care</div>
+                                </div>
+                                <ul class="mask-list">
+                                    <li>BH 12 tháng nguồn, màn hình</li>
+                                    <li>Đổi mới 30 ngày đầu tiên</li>
+                                    <li>Tặng ốp lưng, dán cường lực</li>
+                                    <li>Hỗ trợ phần mềm trọn đời máy</li>
+                                </ul>
+                                </a>
+                                <a class="mask-link" target="_blank" title="Xem chi tiết chính sách bảo hành tại TMobile" href="/page/chinh-sach-bao-hanh.html">Bảo hành vàng</a>
+                            </div>
+                        </div>
+                        <div class="product-item-info">
+                            <div class="product-item-left">
+                                <p class="name"><a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">'.$item['tenSP'].'</a></p>
+                                <p class="price">'.number_format($item['gia'],0).' ₫</p>
+                            </div>
+                            <div class="product-item-right">
+                                <div class="all-icon icon-promotion"></div>
+                                <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                            </div>
+                            <div class="product-item-full-width">
+                                <ul>
+                                    <li><p>1. Tặng: <span style="color: #ff0000;">Cường lực -</span> <span style="color: #ff0000;">Ốp lưng - Tai nghe</span> khi mua BHV</p></li>
+                                    <li><p>2. Giảm: <span style="color: #ff0000;">100K</span> áp dụng HSSV mua BHV tại chi nhánh<span style="color: #ff0000;"> Thái Nguyên</span></p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                }
+            }
+
+        ?>
+    </div>
+    <div class="view-ajax-more">
+        <img src="https://mobilecity.vn/public/assets/img/load_video.svg" alt="load_video">
+    </div>
+    <div class="viewmore">
+        <input type="hidden" id="page" value="1">
+        <a class="more" href="javascript:;" id="xemThemDienThoai" >Xem thêm máy tính bảng</a>
+    </div>
+</section>
+<div class="intro-category">
+</div>
+<script>
+    $(document).ready(function () {
+        $("#xemThemDienThoai").click(function () {
+            var pageNumber = parseInt($("#page").val())+1;
+            var link =location.href;
+            $.get("http://localhost/tmobile/may-tinh-bang/loadListSP",{page:pageNumber,link:link},function (data) {
+                if (data.length == 115){
+                    $("#ketQua").remove();
+                }
+                $(".product-list").append(data);
+                $("#page").val(pageNumber);
+            })
+        });
+        $('#btnLoc').click(function () {
+            var gia = $("#locGia").val();
+            var hang = $("#locHang").val();
+            var hdh = $("#locHDH").val();
+            var manHinh = $("#locManHinh").val();
+            var sapXep = $("#sapXep").val();
+
+            var link="";
+            if (gia != "all"){
+                link = link+gia;
+            }
+            if (hang != "all"){
+                if (link.length <= 0){
+                    link = link + "hang_LIKE_'%"+hang+"%'";
+                }else{
+                    link = link + "&" + "hang_LIKE_'%"+hang+"%'";
+                }
+            }
+            if (hdh != "all"){
+                if (link.length <= 0){
+                    link = link + "heDieuHanh_LIKE_'%"+hdh+"%'";
+                }else{
+                    link = link + "&" + "heDieuHanh_LIKE_'%"+hdh+"%'";
+                }
+            }
+            if (manHinh != "all"){
+                if (link.length <= 0){
+                    link = link + manHinh;
+                }else{
+                    link = link + "&" + manHinh;
+                }
+            }
+            if (sapXep != "all"){
+                if (link.length <= 0){
+                    link = link + "order="+sapXep;
+                }else{
+                    link = link + "&" + "order="+sapXep;
+                }
+            }
+            window.location="http://localhost/tmobile/may-tinh-bang?"+link;
+        })
+    })
+</script>
+<style>
+    .selectLoc{
+        padding: 7px 8px;
+        display: block;
+        border: none;
+        margin: 5px;
+        padding: 3px;
+        background: linear-gradient(to bottom,#ffffff 0%,#f1d8d8 100%);
+        border-radius: 5px;
+    }
+    .btnLoc{
+        margin: 5px;
+        padding: 3px;
+        background: linear-gradient(to bottom,#ffffff 0%,#eca5a5 100%);
+        border-radius: 5px;
+    }
+</style>

@@ -1,0 +1,150 @@
+<?php $this->assets->outputCss('cssdt'); ?>
+<div class="breadcrumb">
+    <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn"><span itemprop="name">Trang chủ</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn/dien-thoai"><span itemprop="name">Tìm kiếm</span></a>
+            <meta itemprop="position" content="2" />
+        </li>
+    </ul>
+</div>
+<div class="intro-category">
+    <h1 class="intro-category-title">Kết quả tìm kiếm điện thoại cho "<?php echo $keyword?>"</h1>
+</div>
+<section class="product-box">
+    <div class="product-list">
+        <?php
+        if (is_array($dataDT)){
+            foreach ($dataDT as $item){
+                echo '
+                        <div class="product-list-item">
+                            <div class="product-item-image">
+                                <div class="hot-and-new">
+                                </div>
+                                <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">
+                                    <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'">
+                                </a>
+                                <div class="mask">
+                                    <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">
+                                    <div class="mask-title">
+                                        <div class="icon"></div>
+                                        <div class="text">TMobile care</div>
+                                    </div>
+                                    <ul class="mask-list">
+                                        <li>BH 12 tháng nguồn, màn hình</li>
+                                        <li>Đổi mới 30 ngày đầu tiên</li>
+                                        <li>Tặng ốp lưng, dán cường lực</li>
+                                        <li>Hỗ trợ phần mềm trọn đời máy</li>
+                                    </ul>
+                                    </a>
+                                    <a class="mask-link" target="_blank" title="Xem chi tiết chính sách bảo hành tại TMobile" href="/page/chinh-sach-bao-hanh.html">Bảo hành vàng</a>
+                                </div>
+                            </div>
+                            <div class="product-item-info">
+                                <div class="product-item-left">
+                                    <p class="name"><a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">'.$item['tenSP'].'</a></p>
+                                    <p class="price">'.number_format($item['gia'],0).' ₫</p>
+                                </div>
+                                <div class="product-item-right">
+                                    <div class="all-icon icon-promotion"></div>
+                                    <a href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                                </div>
+                                <div class="product-item-full-width">
+                                    <ul>
+                                        <li><p>1. Tặng: <span style="color: #ff0000;">Cường lực -</span> <span style="color: #ff0000;">Ốp lưng - Tai nghe</span> khi mua BHV</p></li>
+                                        <li><p>2. Giảm: <span style="color: #ff0000;">100K</span> áp dụng HSSV mua BHV tại chi nhánh<span style="color: #ff0000;"> Thái Nguyên</span></p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    ';
+            }
+        }else{
+            echo '
+                <p style="font-size: 24px; color: red">Không thấy điện thoại nào phù hợp!</p>
+            ';
+        }
+        ?>
+    </div>
+    <div class="intro-category">
+        <h1 class="intro-category-title">Kết quả tìm kiếm phụ kiện cho "<?php echo $keyword?>"</h1>
+    </div>
+    <div class="product-list">
+        <?php
+        if (is_array($dataPK)){
+            foreach ($dataPK as $item){
+                echo '
+                    <div class="service-list-item">
+                        <div class="service-item-image">
+                            <a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'">
+                                <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'" style="">
+                            </a>
+                        </div>
+                            <div class="service-item-info">
+                                <div class="service-item-left">
+                                    <p class="name"><a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'" title="'.$item['tenSP'].'">'.$item['tenSP'].'</a></p>
+                                    <p class="price">'.number_format($item['gia']).' ₫</p>
+                                </div>
+                                <div class="service-item-right">
+                                    <a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                                </div>
+                            </div>
+                    </div>
+                ';
+            }
+        }else{
+            echo '
+                <p style="font-size: 24px; color: red">Không thấy phụ kiện nào phù hợp!</p>
+            ';
+        }
+        ?>
+
+    </div>
+    <div class="intro-category">
+        <h1 class="intro-category-title">Kết quả tìm kiếm sản phẩm sửa chữa cho "<?php echo $keyword?>"</h1>
+    </div>
+    <div class="product-list">
+        <?php
+        if (is_array($dataSC)){
+            foreach ($dataSC as $item){
+                echo '
+                            <div class="service-list-item">
+                                <div class="service-item-image">
+                                    <a href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/'.$item['maSP'].'">
+                                        <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'" style="">
+                                    </a>
+                                    <a href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/'.$item['maSP'].'">
+                                        <div class="mask-service">
+                                            <ul>
+                                                <li>Miễn phí cài đặt phần mềm</li>
+                                                <li>Tặng tấm dán màn hình chống xước</li>
+                                                <li>Tặng Gift Cards giảm giá sửa chữa <span style="color: #ff0000;">50.000₫</span></p></li>
+                                            </ul>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="service-item-info">
+                                    <div class="service-item-left">
+                                        <p class="name"><a href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/'.$item['maSP'].'" title="'.$item['tenSP'].'">'.$item['tenSP'].'</a></p>
+                                        <p class="price">'.number_format($item['gia']).' ₫</p>
+                                    </div>
+                                    <div class="service-item-right">
+                                        <a href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        ';
+            }
+        }else{
+            echo '
+                <p style="font-size: 24px; color: red">Không thấy sản phẩm sửa chữa nào phù hợp!</p>
+            ';
+        }
+        ?>
+
+    </div>
+</section>
+</div>

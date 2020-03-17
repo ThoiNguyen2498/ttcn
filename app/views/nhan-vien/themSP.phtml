@@ -1,0 +1,185 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Thêm sản phẩm
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý sản phẩm</a></li>
+		 	<li class="active">Thêm sản phẩm</li>
+		 	<select id="listSP" style="float: right; border: none;">
+				<option>Điện thoại</option>
+				<option>Phụ kiện</option>
+				<option>Sửa chữa</option>
+			</select>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb" method="post" enctype="multipart/form-data">
+			<table width="100%" id="tblThemTT">
+				<tr style="height: 50px">
+					<th colspan="2"><h2 style="">THÊM ĐIỆN THOẠI</h2></th>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Mã Sản phẩm: <i style="color: red">*</i></th>
+					<td><input type="text" id="maSP" class="form-control form-control-lg" name="maSP" placeholder="Nhập mã sản phẩm" aria-describedby="basic-addon1" required="">
+                        <div class="thonBaoMaSP" style="color: red"></div>
+                    </td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Tên sản phẩm: <i style="color: red">*</i></th>
+					<td><input type="text" class="form-control form-control-lg" name="tenSP" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+                <tr style="height: 50px">
+                    <th width="150px">Loại: <i style="color: red">*</i></th>
+                    <td><input type="number" class="form-control form-control-lg" name="loai" placeholder="Nhập 0 nếu là đt, 1 nếu là máy tính bảng" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+				<tr style="height: 50px">
+					<th width="150px">Hãng: <i style="color: red">*</i></th>
+					<td><input type="text" class="form-control form-control-lg" name="hang" placeholder="Nhập hãng sản phẩm" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Số lượng: <i style="color: red">*</i></th>
+					<td><input type="number" class="form-control form-control-lg" name="soLuong" placeholder="Nhập số lượng sản phẩm" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Màn hình: <i style="color: red">*</i></th>
+					<td><input type="text" class="form-control form-control-lg" name="manHinh" placeholder="Nhập thông tin màn hình" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+                <tr style="height: 50px">
+                    <th width="150px">Độ rộng màn hình: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="doRongManHinh" placeholder="Nhập độ rộng màn hình. vd: 4.7" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+				<tr style="height: 50px">
+					<th width="150px">Hệ điều hành: <i style="color: red">*</i></th>
+					<td><input type="text" class="form-control form-control-lg" name="heDieuHanh" placeholder="Nhập hệ điều hành" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Camera sau:</th>
+					<td><input type="text" class="form-control form-control-lg" name="cameraSau" placeholder="Nhập thông tin camera sau" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Camera trước:</th>
+					<td><input type="text" class="form-control form-control-lg" name="cameraTruoc" placeholder="Nhập thông tin camera trước" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">CPU:</th>
+					<td><input type="text" class="form-control form-control-lg" name="cpu" placeholder="Nhập thông tin CPU" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">RAM:</th>
+					<td><input type="text" class="form-control form-control-lg" name="ram" placeholder="Nhập thông tin RAM" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Bộ nhớ:</th>
+					<td><input type="text" class="form-control form-control-lg" name="boNho" placeholder="Nhập thông tin bộ nhớ" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Thẻ sim:</th>
+					<td><input type="text" class="form-control form-control-lg" name="theSim" placeholder="Nhập thông tin thẻ sim" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Dung lượng pin:</th>
+					<td><input type="text" class="form-control form-control-lg" name="pin" placeholder="Nhập thông tin pin" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Kết nối 4G:</th>
+					<td><input type="text" class="form-control form-control-lg" name="ketNoi4G" placeholder="Nhập thông 4G" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Wifi:</th>
+					<td><input type="text" class="form-control form-control-lg" name="wifi" placeholder="Nhập thông Wifi" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Cổng sạc:</th>
+					<td><input type="text" class="form-control form-control-lg" name="congSac" placeholder="Nhập thông cổng sạc" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Jack tai nghe:</th>
+					<td><input type="text" class="form-control form-control-lg" name="jackTaiNghe" placeholder="Nhập thông Jack tai nghe" ></td>
+				</tr>
+				<tr style="height: 50px">
+					<th width="150px">Màu sắc:</th>
+					<td>
+                        <input type="text" id="inputMau" class="form-control form-control-lg" name="mauSac" placeholder="Các màu phân cách bằng dấu phẩy (,)">
+                    </td>
+				</tr>
+                <tr style="height: 50px">
+                    <th width="150px">Giá: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="gia" placeholder="Giá các màu cách nhau bởi dấu phẩy (,)" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+				<tr style="height: 50px">
+					<th width="150px">Hình ảnh:<i style="color: red">*</i></th>
+
+					<td id="addImg"><input type="file" class="" name="file" aria-describedby="basic-addon1" required=""></td>
+				</tr>
+                <tr style="height: 50px">
+                    <th width="150px">Link video: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="linkVideo" placeholder="Nhập link 1 video đánh giá" aria-describedby="basic-addon1" ></td>
+                </tr>
+				<tr style="height: 50px">
+					<th colspan="2">
+						<input style="width: 100%;" type="submit"  id="themSP" name="themSPDT" value="Thêm sản phẩm">
+					</th>
+				</tr>
+			</table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+
+		</form>
+	</div>
+</div>
+
+<?php
+	$vitri=2;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#listSP').change(function () {
+			var menu= $('#listSP').val();
+			if (menu == "Điện thoại") {
+				window.location.href = 'http://localhost/tmobile/nhan-vien/themsp';
+			}else{
+				if (menu == "Phụ kiện") {
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/themPhuKien';
+				}else{
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/themSuaChua';
+				}
+			}
+			
+		});
+        $("#inputMau").change(function () {
+            var listMau = $("#inputMau").val().split(",");
+            var listMauChuan=[];
+            var j =0;
+            for (var i=0; i<listMau.length; i++){
+                if (listMau[i].trim().length >=1){
+                    listMauChuan[j] = listMau[i].trim().replace(/ /g,"_");
+                    j++;
+                }
+            }
+            console.log(listMauChuan);
+
+            $("#addImg").empty();
+            for (var i=0; i<listMauChuan.length; i++){
+                var str ='Ảnh màu '+listMauChuan[i].trim()+'<input type="file" class="" name="file_'+listMauChuan[i].trim()+'" aria-describedby="basic-addon1" required="">';
+                $("#addImg").append(str);
+            }
+        });
+        $("#maSP").change(async function () {
+            var maSPC = $("#maSP").val();
+            var loaiSPC = $("#listSP").val();
+            await $.get("http://localhost/tmobile/nhan-vien/checkMaSP",{maSP:maSPC,loaiSP:loaiSPC},function (data) {
+                $(".thonBaoMaSP").html(data);
+            });
+            var thongBaoKT = $(".thonBaoMaSP").html();
+            if (thongBaoKT.length >0){
+                $('#themSP').prop('disabled', true);
+            }else{
+                $('#themSP').prop('disabled', false);
+            }
+        });
+	});
+</script>

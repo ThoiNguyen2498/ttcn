@@ -1,0 +1,600 @@
+<?php $this->assets->outputCss('cssdt'); ?>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115880286-3"></script>
+</head>
+<body>
+<div id="fb-root"></div>
+<div class="breadcrumb">
+    <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn"><span itemprop="name">Trang chủ</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn/dien-thoai"><span itemprop="name">Điện thoại di động</span></a>
+            <meta itemprop="position" content="2" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn/dien-thoai-xiaomi"><span itemprop="name">Xiaomi</span></a>
+            <meta itemprop="position" content="3" />
+        </li>
+    </ul>
+</div> 
+<div class="product-title">
+    <h1 class="title">Điện thoại <?php echo $data['tenSP'] ?></h1>
+    <div class="rating-show-start">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <a href="#" class="rating-show-count">(<span><?php echo $thongKeDG['tong']?></span> đánh giá)</a>
+    </div> 
+</div>
+<div class="product-content-box">
+    <div class="product-slide-image">
+        <div class="product_image">
+            <?php
+                if (count($listHinh) <= 1){
+                    echo '
+                        <li class="active"><img src="/tmobile/files/hinh-sp/'.$listHinh[0].'" alt="'.$listHinh[0].'" /></li>
+                    ';
+                }else{
+                    echo '
+                        <li id="hinh0" class="active"><img src="/tmobile/files/hinh-sp/'.$listHinh[0].'" alt="'.$listHinh[0].'" /></li>
+                    ';
+                    for ($i=1;$i< count($listHinh);$i++){
+                        echo '
+                        <li id="hinh'.$i.'" ><img src="/tmobile/files/hinh-sp/'.$listHinh[$i].'" alt="'.$listHinh[$i].'" /></li>
+                    ';
+                    }
+                }
+            ?>
+        </div>
+    </div>
+    <div class="product-price-box">
+        <div class="product-price-content">
+            <div class="price-and-color">
+                <div class="price_location">
+                    <p>Tại: </p>
+                    <select class="location" id="location">
+                        <option value="1" selected>
+                        Bắc Giang </option>
+                        <option value="2">
+                        Thái Nguyên </option>
+                    </select>
+                </div>
+                <p class="price"><span id="numberPrice"><?php echo number_format($listGia[0]) ?></span> ₫</p>
+                <div class="status-box">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    <span>Còn hàng</span>
+                </div>
+                <div class="color-list">
+                    <?php
+                        if (isset($listMau) & $listMau[0] != "NULL
+                        " ){
+                            echo '
+                                <p>Chọn màu: </p>
+                                <select class="chonMau">';
+                            foreach ($listMau as $key => $item){
+                                echo '
+                                    <option value="'.$key.'">'.$item.'</option>
+                                ';
+                            }
+                            echo '
+                                </select>
+                            ';
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="custom-param-list"></div>
+            <div class="warranty-box">
+                <p>Chế độ bảo hành </p>
+                <select class="warranty">
+                    <option value="0">Bảo hành mặc định</option>
+                    <option value="250000">BHV 12 Tháng</option>
+                </select>
+                <a href="https://localhost/tmobile/page/chinh-sach-bao-hanh.html" id="about_warranty_link" target="_blank">
+                    <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                    <div id="text-tooltips">
+                        <span class="tips"></span>
+                        <p>Tìm hiểu thêm về bảo hành vàng.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="sale-box">
+            <p class="sale-box-title">Khuyến mãi</p>
+            <ul>
+                <li><p>1. Tặng: <span style="color: #ff0000;">Cường lực -</span> <span style="color: #ff0000;">Ốp lưng - Tai nghe</span> khi mua BHV</p></li>
+                <li><p>2. Giảm: <span style="color: #ff0000;">100K</span> áp dụng HSSV mua BHV tại <span style="color: #ff0000;">Thái Nguyên</span></p></li>
+                <li><p>3. Mua: Dán cường lực 5D chỉ <span style="color: #ff0000;">99K</span></p></li>
+            </ul>
+        </div>
+        <div class="product-info-general">
+            <ul>
+                <li>Bảo hành mặc định: 12 tháng</li>
+                <li>Giao hàng tận nơi miễn phí toàn quốc. <a href="/page/chinh-sach-van-chuyen.html">Tìm hiểu thêm</a></li>
+            </ul>
+        </div>
+        <div class="buy-box">
+            <a href="javascript:;" class="buy-now">Mua ngay <span>Giao hàng tận nơi miễn phí</span></a>
+            <a href="http://localhost/tmobile/nguoi-dung/datGiuMay?maSP=<?php echo $data['maSP']?>" class="buy-pay-later" target="_blank">ĐẶT GIỮ MÁY <span>Lấy tại cửa hàng</span></a>
+        </div>
+        <div class="product-address">
+            <span><strong>0989.898.989</strong> (BG)</span>
+            <span><strong>0968.686.868</strong> (TN)</span>
+        </div>
+    </div>
+    <div class="product-related-box">
+        <div class="product-related-list">
+            <?php
+            if (is_array($dataGY)){
+                foreach ($dataGY as $item){
+                    echo '
+                        <div class="product-related-item">
+                            <div class="product-related-image">
+                                <a target="_blank" href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">
+                                    <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item["hinhAnh"].'" alt="'.$item["hinhAnh"].'">
+                                </a>
+                            </div>
+                            <div class="product-related-content">
+                                <p class="name"><a target="_blank" href="http://localhost/tmobile/dien-thoai/sanPham/'.$item['maSP'].'">'.$item["tenSP"].'</a></p>
+                                <p class="price">'.number_format($item["gia"]).' ₫</p>
+                            </div>
+                        </div>
+                    ';
+                }
+            }
+            ?>
+        </div>
+    </div>
+</div>
+<div class="product-content-box">
+    <div class="product-info-box">
+        <div class="product-info-title">Thông số kỹ thuật</div>
+        <div class="product-info-content">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Màn hình:</td>
+                        <td><?php echo $data['manHinh']?></td>
+                    </tr>
+                    <tr>
+                        <td>Hệ điều hành:</td>
+                        <td><?php echo $data['heDieuHanh']?></td>
+                    </tr>
+                    <tr>
+                        <td>Camera sau:</td>
+                        <td><?php echo $data['cameraSau']?></td>
+                    </tr>
+                    <tr>
+                        <td>Camera trước:</td>
+                        <td><?php echo $data['cameraTruoc']?></td>
+                    </tr>
+                    <tr>
+                        <td>CPU:</td>
+                        <td><?php echo $data['cpu']?></td>
+                    </tr>
+                    <tr>
+                        <td>RAM:</td>
+                        <td><?php echo $data['ram']?></td>
+                    </tr>
+                    <tr>
+                        <td>Bộ nhớ trong:</td>
+                        <td><?php echo $data['boNho']?></td>
+                    </tr>
+                    <tr>
+                        <td>Thẻ SIM:</td>
+                        <td><?php echo $data['theSim']?></td>
+                    </tr>
+                    <tr>
+                        <td>Dung lượng pin:</td>
+                        <td><?php echo $data['pin']?></td>
+                    </tr>
+                </tbody>
+            </table>
+            <span id="product-show-lightbox" class="show-lightbox-btn">Xem thêm cấu hình</span>
+        </div>
+        <div class="product-info-lightbox lightbox">
+            <span id="product-close-lightbox" class="close-lightbox-btn"><i class="fa fa-times" aria-hidden="true"></i></span>
+            <marquee class="product-lightbox-title">
+                <p><?php echo $data['tenSP']?></p>
+            </marquee>
+            <div class="product-lightbox-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">Thông tin khác</td>
+                        </tr>
+                        <tr>
+                            <td>Kết nối 4G:</td>
+                            <td><?php echo $data['ketNoi4G']?></td>
+                        </tr>
+                        <tr>
+                            <td>Wifi:</td>
+                            <td><?php echo $data['wifi']?></td>
+                        </tr>
+                        <tr>
+                            <td>Cổng sạc:</td>
+                            <td><?php echo $data['congSac']?></td>
+                        </tr>
+                        <tr>
+                            <td>Jack tai nghe:</td>
+                            <td><?php echo $data['jackTaiNghe']?></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="product-video-box">
+        <div class="product-video-title"><?php echo $data['tenSP'];?></div>
+        <div class="product-video-content" id="slider_video_home">
+            <div class="iframe" data-iframe="<?php echo $data['linkVideo'];?>;t=50s"></div>
+        </div>
+    </div>
+    <div class="accessories-related-box">
+        <div class="accessories-related-title">Phụ kiện liên quan</div>
+        <div class="accessories-related-content">
+            <?php
+                foreach ($dataPKGY as $item){
+                    echo '
+                        <div class="accessories-related-item">
+                            <div class="accessories-related-item-image">
+                                <a target="_blank" href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'">
+                                    <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'">
+                                </a>
+                            </div>
+                            <div class="accessories-related-item-info">
+                                <p class="name"><a target="_blank" href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'">'.$item['tenSP'].'</a></p>
+                                <p class="price">'.number_format($item['gia']).' ₫</p>
+                                <a target="_blank" href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                            </div>
+                        </div>
+                    ';
+                }
+            ?>
+        </div>
+    </div> 
+</div>
+<div class="product-content-box fix-content-right">
+    <div class="product-content-left">
+        <div class="product-detail product-subdetail">
+            <h2 class="product-content-title">
+            <img src="https://mobilecity.vn/public/assets/img/logo_icon.png" alt="">
+            <?php if (isset($tenBV)) echo $tenBV; else echo "Chưa có bài viết...";?>
+            </h2>
+            <div class="product-detail-content css-content">
+                <?php
+                    if (isset($baiViet)){
+                        foreach ($baiViet as $item){
+                            switch ($item['loai']){
+                                case "title":
+                                    echo "<h2>".$item['noiDung']."</h2>";
+                                    break;
+                                case "content":
+                                    echo "<p>".$item['noiDung']."</p>";
+                                    break;
+                                case "img":
+                                    echo '
+                                    <img class="lazy" style="display: block; margin-left: auto; margin-right: auto;" src="/tmobile/img/load_video.svg" data-original="'.$item['noiDung'].'" alt="" />
+                                    ';
+                            }
+                        }
+
+                    }
+                ?>
+            </div>
+            <div class="product-detail-show">
+                <button class="product-detail-view product-detail-viewall">
+                    <i class="fa fa-long-arrow-down"></i> Xem thêm chi tiết bài viết
+                </button>
+                <button class="product-detail-view product-detail-viewdefault">
+                    <i class="fa fa-long-arrow-up"></i> Ẩn bớt chi tiết bài viết
+                </button>
+            </div>
+        </div>
+        <div class="comment-box" id="comment">
+            <div class="comment-box-title">
+                <h4>Đánh giá <?php echo $data['tenSP'];?></h4>
+                <input type="hidden" id="maSP" value="<?php echo $data['maSP'];?>">
+            </div>
+            <div class="comment-vote">
+                <div class="comment-vote__star">
+                    <div class="comment-vote__star-number">5/5</div>
+                    <div class="comment-vote__star-star">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <div class="comment-vote__star-total">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="comment-vote__percent">
+                    <div class="comment-vote__percent-item">
+                        <div class="comment-vote__percent-star">5 Sao</div>
+                        <div class="comment-vote__percent-progress">
+                            <span style="width:<?php echo $thongKeDG['5Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                        </div>
+                        <div class="comment-vote__percent-number"><?php echo $thongKeDG['5Sao'] ?></div>
+                    </div>
+                    <div class="comment-vote__percent-item">
+                        <div class="comment-vote__percent-star">4 Sao</div>
+                        <div class="comment-vote__percent-progress">
+                            <span style="width:<?php echo $thongKeDG['4Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                        </div>
+                        <div class="comment-vote__percent-number"><?php echo $thongKeDG['4Sao'] ?></div>
+                    </div>
+                    <div class="comment-vote__percent-item">
+                        <div class="comment-vote__percent-star">3 Sao</div>
+                        <div class="comment-vote__percent-progress">
+                            <span style="width:<?php echo $thongKeDG['3Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                        </div>
+                        <div class="comment-vote__percent-number"><?php echo $thongKeDG['3Sao'] ?></div>
+                    </div>
+                    <div class="comment-vote__percent-item">
+                        <div class="comment-vote__percent-star">2 Sao</div>
+                        <div class="comment-vote__percent-progress">
+                            <span style="width:<?php echo $thongKeDG['2Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                        </div>
+                        <div class="comment-vote__percent-number"><?php echo $thongKeDG['2Sao'] ?></div>
+                    </div>
+                    <div class="comment-vote__percent-item">
+                        <div class="comment-vote__percent-star">1 Sao</div>
+                        <div class="comment-vote__percent-progress">
+                            <span style="width:<?php echo $thongKeDG['1Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                        </div>
+                        <div class="comment-vote__percent-number"><?php echo $thongKeDG['1Sao'] ?></div>
+                    </div>
+                </div>
+                <div class="comment-vote__btn">
+                    <p>Bạn có vấn đề cần tư vấn?</p>
+                    <a href="javascript:;" id="show-comment-form">Gửi đánh giá</a>
+                </div>
+            </div>
+            <div class="comment-form">
+                <form action="" name="comment-form-client">
+                    <div class="product-rating">
+                        <p>Bạn chấm sản phẩm này bao nhiêu sao? </p>
+                        <input type="hidden" id="rating" value="5" name="rating">
+                        <div class="rating-star">
+                            <i class="fa start fa-star" data-value="1" aria-hidden="true"></i>
+                            <i class="fa start fa-star" data-value="2" aria-hidden="true"></i>
+                            <i class="fa start fa-star" data-value="3" aria-hidden="true"></i>
+                            <i class="fa start fa-star" data-value="4" aria-hidden="true"></i>
+                            <i class="fa start fa-star" data-value="5" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="comment-content-text">
+                        <textarea name="content" id="content" placeholder="Mời bạn để lại đánh giá,bình luận (Vui lòng nhập tiếng việt có dấu)"></textarea>
+                    </div>
+                    <div class="comment-name-and-email">
+                        <input type="text" name="name" id="name" placeholder="Họ và Tên..." aria-describedby="basic-addon1" required="">
+                        <input type="text" name="phone" id="phone" placeholder="Số siện thoại" aria-describedby="basic-addon1" required="">
+                        <input type="email" name="email" id="email" placeholder="Email" aria-describedby="basic-addon1" required="">
+                    </div>
+                    <div class="comment-btn">
+                        <button type="button" id="btnGui">Gửi</button>
+                        <a href="javascript:;" id="close-comment-form"><i class="fa fa-remove" aria-hidden="true"></i> Hủy</a>
+                    </div>
+                </form>
+            </div>
+            <div class="comment-search">
+                <input type="text" name="search_comment" id="search_comment" placeholder="Tìm theo nội dung, người gửi,...">
+            </div>
+            <div class="comment-list">
+                <?php
+                    if (isset($dataDanhGia)){
+                        foreach ($dataDanhGia as $item){
+                            echo '
+                                <div class="comment-item">
+                                    <div class="comment-avatar">
+                                        <span class="avatar">X</span>
+                                    </div>
+                                    <div class="comment-info">
+                                        <div class="comment-title">
+                                            <div class="comment-name">
+                                                <p class="name">'.$item['hoTen'].'</p>
+                                                <p class="phone">'.substr($item['sdt'],0,7).'xx</p>
+                                            </div>
+                                            <div class="comment-star">';
+                                                for ($k=1;$k<=5;$k++){
+                                                    if ($k <= $item['soSao']){
+                                                        echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                                    }else{
+                                                        echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+                                                    }
+
+                                                }
+                                             echo '  
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="comment-content">'.$item['noiDung'].'</div>
+                                        <div class="comment-footer">
+                                            <p class="time">'.$item['ngayDang'].'</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        }
+                    }
+                ?>
+
+            </div>
+            <div class="comment-pagination">
+                <ul id="pagination"></ul>
+            </div>
+        </div> 
+    </div>
+    <div class="product-content-right">
+        <div class="product-summary">
+            <p class="product-summary-title"><?php echo $data['tenSP'];?></p>
+            <p class="product-summary-price"><?php echo number_format($listGia[0]);?> ₫</p>
+            <div class="sale-box">
+                <p class="sale-box-title">Khuyến mãi</p>
+                <ul>
+                    <li><p>1. Tặng: <span style="color: #ff0000;">Cường lực -</span> <span style="color: #ff0000;">Ốp lưng - Tai nghe</span> khi mua BHV</p></li>
+                    <li><p>2. Giảm: <span style="color: #ff0000;">100K</span> áp dụng HSSV mua BHV tại <span style="color: #ff0000;">Thái Nguyên</span></p></li>
+                    <li><p>3. Mua: Dán cường lực 5D chỉ <span style="color: #ff0000;">99K</span></p></li>
+
+                </ul>
+            </div>
+            <div class="buy-box">
+                <a href="javascript:;" class="buy-now">Mua ngay <span>Giao hàng tận nơi miễn phí</span></a>
+                <a target="_blank" href="" class="buy-pay-later">Đặt Giữ máy <span>Lấy tại cửa hàng</span></a>
+            </div>
+            <div class="product-summary-address">
+                <span><strong>0989.898.989</strong> (BG)</span>
+                <span><strong>0968.686.868</strong> (TN)</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup">
+    <div class="popup_title">
+        <p class="title">Đặt mua <?php $data['tenSP']?></p>
+        <span class="popup_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+    </div>
+    <div class="popup_main">
+        <form action="http://localhost/tmobile/nguoi-dung/datHang" method="post">
+            <div class="popup_product_info">
+                <div class="popup-product-image">
+                    <img src="/tmobile/files/hinh-sp/<?php echo $listHinh[0];?>" alt="<?php echo $listHinh[0];?>" />
+                </div>
+                <p class="popup_product_title"><?php echo $data['tenSP'];?></p>
+                <p class="popup_product_price"><?php echo number_format($listGia[0]);?> ₫</p>
+                <div class="clearfix"></div>
+                <div class="popup-color">
+                    <div class="popup-color-list"></div>
+                </div>
+                <div class="popup-custom-param-list">
+                </div>
+                <div class="popup-warranty-box">
+                    <p>Chế độ bảo hành </p>
+                    <select class="popup-warranty" disabled>
+                        <option value="0">Bảo hành mặc định</option>
+                        <option value="250000">BHV 12 Tháng</option>
+                    </select>
+                </div>
+            </div>
+            <div class="popup_customer_info">
+                <p class="popup_customer_info_title">Thông tin người mua</p>
+                    <select id="customer-gender" name="gioiTinh">
+                        <option value="1">Anh</option>
+                        <option value="2">Chị</option>
+                    </select>
+                    <input type="text" id="customer-name" name="ten" placeholder="Họ tên bạn (bắt buộc)" aria-describedby="basic-addon1" required="">
+                    <input type="text" id="customer-phone" name="sdt" placeholder="Số điện thoại (bắt buộc)" aria-describedby="basic-addon1" required="">
+                    <input type="text" id="customer-email" name="email" placeholder="Địa chỉ email (bắt buộc)" aria-describedby="basic-addon1" required="">
+                    <input type="hidden" name="cheDoBH" class="cheDoBH" value="0">
+                    <input type="hidden" name="danhMuc" class="danhMuc" value="DienThoai">
+                    <input type="hidden" name="mauSac" class="mauSac" value="0">
+                    <input type="hidden" name="maSP" value="<?php echo $data['maSP'];?>">
+                    <select id="customer-location" name="diaDiem">
+                        <option value="1" selected>Bắc Giang</option>
+                        <option value="2">Thái Nguyên</option>
+                    </select>
+                    <textarea id="customer-address" name="diaChiNhanHang" placeholder="Địa chỉ nhận hàng" aria-describedby="basic-addon1" required=""></textarea>
+                    <textarea id="order-note" name="ghiChu" placeholder="Ghi chú đơn hàng"></textarea>
+                    <button class="btn-submit-buynow" name="btnMua">Đặt hàng ngay</button>
+            </div>
+        </form>
+    </div>
+</div>
+<input type="hidden" id="listGia" value="<?php echo $data['gia']; ?>">
+<script type="text/javascript">
+	$(document).ready(function() {
+        var listGia=[];
+        var strListGia = $("#listGia").val();
+        var listStrGia = strListGia.split(",");
+        var j=0;
+
+        for (var i=0; i < listStrGia.length; i++){
+            if (parseInt(listStrGia[i]) > 0){
+                listGia[j] = listStrGia[i];
+                j++;
+            }
+        }
+	    $('.chonMau').change(function () {
+	        var idHinh = $('.chonMau').val();
+            $('li').removeClass("active");
+            $("#hinh"+ idHinh).addClass("active");
+
+            var giaTriBH = $('.warranty').val();
+            if (listGia[idHinh] > 0){
+                var giaTien =parseInt(listGia[idHinh])+parseInt(giaTriBH);
+            }else{
+                var giaMau;
+                for (var i = idHinh; i >=0;i--){
+                    giaMau = listGia[i];
+                    if (giaMau > 0){
+                        break;
+                    }
+                }
+                var giaTien =parseInt(giaMau)+parseInt(giaTriBH);
+            }
+
+            var gia = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(giaTien);
+            gia = gia.substr(1,gia.length);
+            $("#numberPrice").empty();
+            $("#numberPrice").html(gia);
+
+            var hinhSPChon= $('li.active').html();
+            var giaSPChon = $('.price').html();
+
+            $('.popup-product-image').html(hinhSPChon);
+            $('.popup_product_price').html(giaSPChon);
+            $('.popup-warranty').val(giaTriBH);
+            $('.cheDoBH').val(giaTriBH);
+            $('.mauSac').val($('.chonMau').val());
+
+        });
+        $('.warranty').change(function () {
+
+            var idHinh = $('.chonMau').val();
+            var giaTriBH = $('.warranty').val();
+            if (listGia[idHinh] > 0){
+                var giaTien =parseInt(listGia[idHinh])+parseInt(giaTriBH);
+            }else{
+                var giaTien =parseInt(listGia[0])+parseInt(giaTriBH);
+            }
+
+
+            var gia = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(giaTien);
+            gia = gia.substr(1,gia.length);
+            $("#numberPrice").empty();
+            $("#numberPrice").html(gia);
+
+            var hinhSPChon= $('li.active').html();
+            var giaSPChon = $('.price').html();
+
+            $('.popup-product-image').html(hinhSPChon);
+            $('.popup_product_price').html(giaSPChon);
+            $('.popup-warranty').val(giaTriBH);
+            $('.cheDoBH').val(giaTriBH);
+            $('.mauSac').val($('.chonMau').val());
+        });
+        $("#btnGui").click(function () {
+            var content = $("#content").val();
+            var soSao = $("#rating").val();
+            var tenND = $("#name").val();
+            var sdt = $("#phone").val();
+            var email = $("#email").val();
+            var maSP =$("#maSP").val();
+            if (sdt.length <=0){
+                alert("Bạn cần nhập số điện thoại đã mua sản phẩm này để đánh giá!");
+                return 0;
+            }
+            $.post("http://localhost/tmobile/nguoi-dung/danhGia",{maSP:maSP,soSao:soSao,hoTen:tenND,sdt:sdt,noiDung:content},function (data) {
+                alert(data);
+            });
+        })
+	});
+</script>

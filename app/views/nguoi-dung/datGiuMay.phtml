@@ -1,0 +1,115 @@
+<div class="breadcrumb">
+    <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn"><span itemprop="name">Trang chủ</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn/dien-thoai"><span itemprop="name">Đặt giữ máy</span></a>
+            <meta itemprop="position" content="2" />
+        </li>
+    </ul>
+</div>
+<div class="intro-category">
+</div>
+<section class="product-box">
+    <form method="post">
+        <table>
+            <tr>
+                <th colspan="2" style="color: #9c834c"><h3>Thông tin sản phẩm đặt</h3></th>
+            </tr>
+            <tr>
+                <th>Hình ảnh:</th>
+                <td>
+                    <img style="max-width: 300px;" src="/tmobile/files/hinh-sp/<?php echo $data['hinhAnh']?>">
+                </td>
+            </tr>
+            <tr>
+                <th>Tên sản phẩm:</th>
+                <td>
+                    <input type="text" class="input1" name="tenSP" disabled value="<?php echo $data['tenSP']?>" placeholder="Tên sản phẩm">
+                </td>
+            </tr>
+            <tr>
+                <th>Giá tiền:</th>
+                <td>
+                    <input type="number" class="input1" name="gia" disabled value="<?php echo $data['gia']?>" placeholder="Giá tiền">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2" style="color: #9c834c"><h3>Thông tin khách hàng</h3></th>
+            </tr>
+            <tr>
+                <th>Tên người đặt: <i style="color: red">*</i></th>
+                <td>
+                    <input type="text" class="input1" name="tenNguoiDung" value="" aria-describedby="basic-addon1" required="" placeholder="Nhập tên người đặt">
+                </td>
+            </tr>
+            <tr>
+                <th>Số điện thoại: <i style="color: red">*</i></th>
+                <td>
+                    <input type="number" class="input1" name="sdt" value="" aria-describedby="basic-addon1" required="" placeholder="Nhập số điện thoại">
+                </td>
+            </tr>
+            <tr>
+                <th>Email: <i style="color: red">*</i></th>
+                <td>
+                    <input type="email" class="input1" name="email" value="" aria-describedby="basic-addon1" required="" placeholder="Nhập email">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2" style="color: #9c834c"><h3>Thời gian hẹn</h3></th>
+            </tr>
+            <tr>
+                <th>Thời gian:</th>
+                <td>
+                    Ngày: <input type="date" class="input2" name="ngay" aria-describedby="basic-addon1" required="">
+                      Giờ: <input type="time" class="input3" value="10:00" name="gio" aria-describedby="basic-addon1" required="">
+                </td>
+            </tr>
+            <tr>
+                <th>Ghi chú:</th>
+                <td>
+                    <input type="text" class="input1" name="ghiChu" placeholder="Ghi chú đơn hàng">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" class="input1" name="datGiuMay" value="ĐẶT GIỮ MÁY">
+                    <i style="color: red"><?php if (isset($ketQua))echo $ketQua?></i>
+                </td>
+
+            </tr>
+        </table>
+        <div>
+        </div>
+    </form>
+</section>
+<style>
+    th,td{
+        text-align: left;
+        border-bottom: 1px solid rgba(245, 171, 162, 0.49);
+        padding: 10px;
+    }
+    table{
+        border: 1px solid rgba(245, 171, 162, 0.49);
+        width: 50%;
+        min-width: 500px;
+        margin: auto;
+        margin-top: 10px;
+        padding: 5px;
+    }
+    .input1{
+        width: 100%;
+    }
+    .input2{
+        width: 40%;
+    }
+    .input3{
+        width: 38.9%;
+    }
+    table input{
+        border: none;
+        border-bottom: 1px solid #f28cff;
+    }
+</style>

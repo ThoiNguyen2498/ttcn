@@ -1,0 +1,178 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Thông tin chi tiết đơn hàng
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý đơn hàng</a></li>
+		 	<li class="active">Chi tiết đơn hàng</li>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table style="width: 100%;">
+                <tr>
+                    <th colspan="6" class="deMuc">Chi tiết đơn hàng</th>
+                </tr>
+                <tr>
+                    <th>Mã đơn hàng</th>
+                    <th>Ngày đặt</th>
+                    <th>Tổng tiền</th>
+                    <th>Danh mục</th>
+                    <th>Ghi Chú</th>
+                    <th>Hành động/Trạng thái</th>
+                </tr>
+                <tr>
+                    <td><?php echo $dataDH['maDonHang'];?></td>
+                    <td><?php echo $dataDH['ngayDat'];?></td>
+                    <td><?php echo $dataDH['tongTien'];?></td>
+                    <td><?php echo $dataDH['danhMuc'];?></td>
+                    <td><?php echo $dataDH['ghiChu'];?></td>
+                    <?php
+                    switch ($dataDH['trangThai']){
+                        case "Chờ Duyệt":
+                            echo '
+                                        <td class="tdHD">
+                                            <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$dataDH['maDonHang'].'&trangThai=Đã Nhận&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Nhận Đơn</a>
+                                            <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$dataDH['maDonHang'].'&trangThai=Đã Hủy&link=http://localhost/tmobile/nhan-vien/showAllDonHang" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Hủy Đơn</a>
+                                        </td>
+                                    ';
+                            break;
+                        case "Đã Nhận":
+                            echo '
+                                        <td class="tdHD">
+                                            <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$dataDH['maDonHang'].'&trangThai=Đang Giao&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Giao Hàng</a>
+                                            <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$dataDH['maDonHang'].'&trangThai=Đã Hủy&link=http://localhost/tmobile/nhan-vien/showAllDonHang" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Hủy Đơn</a>
+                                        </td>
+                                    ';
+                            break;
+                        case "Đang Giao":
+                            echo '
+                                        <td class="tdHD">
+                                            <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$dataDH['maDonHang'].'&trangThai=Xong&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Thành Công</a>
+                                            <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$dataDH['maDonHang'].'&trangThai=Thất Bại&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Thất Bại</a>
+                                        </td>
+                                    ';
+                            break;
+                        case "Xong":
+                            echo '
+                                        <td class="tdHD">
+                                            Giao thành công
+                                        </td>
+                                    ';
+                            break;
+                        case "Đã Hủy":
+                            echo '
+                                        <td class="tdHD">
+                                            Đã hủy
+                                        </td>
+                                    ';
+                            break;
+                        case "Thất Bại":
+                            echo '
+                                        <td class="tdHD">
+                                            Thất bại
+                                        </td>
+                                    ';
+                            break;
+                        }
+                    ?>
+                </tr>
+            </table>
+            <table style="width: 100%;">
+                <tr>
+                    <th colspan="5" class="deMuc">Chi tiết khách hàng</th>
+                </tr>
+                <tr>
+                    <th>Mã người dùng</th>
+                    <th>Tên người dùng</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Địa chỉ</th>
+                </tr>
+                <tr>
+                    <td><?php echo $dataND['maNguoiDung'];?></td>
+                    <td><?php echo $dataND['tenNguoiDung'];?></td>
+                    <td><?php echo $dataND['sdt'];?></td>
+                    <td><?php echo $dataND['email'];?></td>
+                    <td><?php echo $dataND['diaChi'];?></td>
+                </tr>
+            </table>
+            <table style="width: 100%;">
+                <tr>
+                    <th colspan="7" class="deMuc">Chi tiết sản phẩm</th>
+                </tr>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Mã sản phẩm</th>
+                    <th>Màu sắc</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Gói bảo hành</th>
+                </tr>
+                <tr>
+
+                    <td width="80px"><img width="80px" src="/tmobile/files/hinh-sp/<?php echo $dataSPMua['hinhAnh'];?>"></td>
+                    <td><?php echo $dataSPMua['tenSP'];?></td>
+                    <td><?php echo $dataSPMua['maSP'];?></td>
+                    <td><?php echo $dataSPMua['mauSac'];?></td>
+                    <td><?php echo $dataSPMua['gia'];?></td>
+                    <td><?php echo $dataSPMua['soLuong'];?></td>
+                    <td><?php echo $dataSPMua['baoHanh'];?></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<?php
+$vitri=5;
+?>
+<style>
+    table{
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    .deMuc{
+        background: #afccc6;
+        font-size: 21px;
+        font-family: initial;
+        text-align: left;
+        padding-left: 10px;
+    }
+    td,th{
+        padding: 5px;
+        border: 1px solid #e1dde4;
+    }
+    td{
+
+    }
+    .maSP{
+        width: 120px;
+    }
+    .soLuong{
+        width: 48px;
+    }
+    .btnXN{
+        border: 1px solid #9feaab;
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: -2px;
+        text-decoration: none;
+        background: #c4fdc4;
+    }
+    .btnXN:hover{
+        background: #76f576;
+    }
+    .tdHD{
+        width: 175px;
+    }
+</style>
+<?php $this->assets->outputJs('js'); ?>
+<script>
+    $(document).ready(function () {
+
+    })
+</script>

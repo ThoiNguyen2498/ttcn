@@ -1,0 +1,111 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Sửa thông tin sản phẩm
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a class="menu" href="#">Quản lý sản phẩm</a></li>
+            <li class="active">Sửa thông tin sản phẩm sửa chữa</li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table width="100%" id="tblThemTT">
+                <tr style="height: 50px">
+                    <th colspan="2"><h2 style="">Sửa thông tin sản phẩm sửa chữa</h2></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Mã sản phẩm: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="maSP" disabled="true" value="<?php echo $data['maSP'];?>" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Tên sản phẩm: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="tenSP" value="<?php echo $data['tenSP'];?>" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Model: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="model" value="<?php echo $data['model'];?>" placeholder="Nhập hãng sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hãng: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="hang" value="<?php echo $data['hang'];?>" placeholder="Nhập hãng sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Số lượng: <i style="color: red">*</i></th>
+                    <td><input type="number" class="form-control form-control-lg" name="soLuong" value="<?php echo $data['soLuong'];?>" placeholder="Nhập số lượng sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Màu sắc:</th>
+                    <td>
+                        <input type="text" id="inputMau" class="form-control form-control-lg" name="mauSac" value="<?php if ($data['mauSac']!='NULL') echo $data['mauSac'];?>" placeholder="Các màu phân cách bằng dấu phẩy (,)">
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Giá: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="gia" value="<?php echo $data['gia'];?>" placeholder="Giá các màu cách nhau bởi dấu phẩy (,)" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hình ảnh:<i style="color: red">*</i></th>
+                    <td id="addImg">
+                        <?php
+                        $listImg=explode(",",$data['hinhAnh']);
+                        foreach ($listImg as $item){
+                            if (strlen(trim($item)) > 1){
+                                echo '<img width="100px" src="/tmobile/files/hinh-sp/'.$item.'" alt="Image" >';
+                            }
+                        }
+                        ?>
+
+                        <input type="file" class="" name="file" >
+                        <i style="color: #FF9223">*Không chọn tệp mới nếu không muốn thay đổi hình ảnh</i>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2">
+                        <input style="width: 100%;" type="submit"  id="luuThongtin" name="luuThongTin" value="Lưu thông tin">
+                    </th>
+                </tr>
+            </table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<?php
+$vitri=2;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#inputMau").change(function () {
+            if ($("#inputMau").val().length <=0){
+
+                var str ='<input type="file" class="" name="file" >';
+                $("#addImg").empty();
+                $("#addImg").append(str);
+                // alert("ok");
+            }else{
+                var listMau = $("#inputMau").val().split(",");
+                var listMauChuan=[];
+                var j =0;
+                for (var i=0; i<listMau.length; i++){
+                    if (listMau[i].trim().length >=1){
+                        listMauChuan[j] = listMau[i].trim().replace(/ /g,"_");
+                        j++;
+                    }
+                }
+                console.log(listMauChuan);
+
+                $("#addImg").empty();
+                for (var i=0; i<listMauChuan.length; i++){
+                    var str ='Ảnh màu '+listMauChuan[i].trim()+'<input type="file" class="" name="file_'+listMauChuan[i].trim()+'" aria-describedby="basic-addon1" required="">';
+                    $("#addImg").append(str);
+                }
+            }
+        });
+    });
+</script><?php

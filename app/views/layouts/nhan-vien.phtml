@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<!-- 
+Template Name: BRILLIANT Bootstrap Admin Template
+Version: 4.5.6
+Author: WebThemez
+Website: http://www.webthemez.com/ 
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta content="" name="description" />
+    <meta content="webthemez" name="author" />
+    <title>TMobile - Chào mừng trở lại</title>
+    <?php $this->assets->outputCss('admincss'); ?> 
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost/tmobile/nhan-vien"><strong><i class="fa fa-mobile" aria-hidden="true"></i>
+                <h>TMobile.</h></strong></a>
+				
+		<div id="sideNav" href="">
+		<i class="fa fa-bars icon"></i> 
+		</div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="http://localhost/tmobile/nhan-vien/showDonHangMoi">
+                                <div>
+                                    <i class="fa fa-file-text"></i>  Đơn hàng mới
+                                    <span class="pull-right text-muted small"><?php if ($soDonMoi > 0) echo $soDonMoi;?></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="http://localhost/tmobile/nhan-vien/suaThongTinTaiKhoan"><i class="fa fa-user fa-fw"></i>Hồ sơ</a>
+                        </li>
+                        <li><a href="http://localhost/tmobile/nhan-vien/doiMatKhau"><i class="fa fa-key"></i> Đổi mật khẩu</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="http://localhost/tmobile/nhan-vien/logout"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a <?php if(isset($vitri) && $vitri ==5) echo "class=\"active-menu\"";?> href="#"><i class="fa fa-file-text"></i> Quản lý đơn hàng<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showAllDonHang" > Tất cả đơn hàng</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showDonHangMoi" > Đơn hàng mới</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showDonDaNhan" > Đơn hàng đã nhận</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showDonDangGiao" > Đơn hàng đang giao</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showDonDaGiao" > Đơn hàng đã giao</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showDonThatBai" > Đơn hàng thất bại</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showDonDaHuy" > Đơn hàng đã hủy</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <?php
+                        $ses = $this->session->get('acc');
+                        if ($ses["lv"]==1){
+                            echo '
+                    <li class="QTV">
+                        <a ';if(isset($vitri) && $vitri ==2) echo "class=\"active-menu\"";  echo 'href="#"><i class="fa fa-sitemap"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showsp">Tất cả sản phẩm</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/themsp">Thêm sản phẩm mới<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="http://localhost/tmobile/nhan-vien/themsp" > Thêm thủ công</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost/tmobile/nhan-vien/themspexcel" > Thêm từ file Excel</a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="QTV">
+                        <a ';if(isset($vitri) && $vitri ==3) echo "class=\"active-menu\"";  echo 'href="#"><i class="fa fa-users"></i> Quản lý tài khoản<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showTaiKhoan" > Tất cả tài khoản nhân viên</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/taoTaiKhoan" > Tạo mới tài khoản nhân viên</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a ';if(isset($vitri) && $vitri ==6) echo "class=\"active-menu\""; echo 'href="#"><i class="fa fa-newspaper-o"></i> Quản lý bài viết<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showAllBaiViet" > Tất cả bài viết</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/themBaiViet" > Thêm bài viết</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a '; if(isset($vitri) && $vitri ==7) echo "class=\"active-menu\""; echo 'href="http://localhost/tmobile/nhan-vien/themBanner"><i class="fa fa-picture-o"></i> Quản lý banner<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/showAllBanner" > Tất cả Banner</a>
+                            </li>
+                            <li>
+                                <a href="http://localhost/tmobile/nhan-vien/themBanner" > Thêm Banner</a>
+                            </li>
+                        </ul>
+                    </li>
+                    ';
+                        }
+                    ?>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+      	<?php echo $this->getContent(); ?>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <?php $this->assets->outputJs('js'); ?>
+    <script>
+        $(document).ready(function () {
+            // alert("ok");
+        })
+    </script>
+    <?php $this->assets->outputJs('adminjs'); ?>
+
+
+</body>
+</html>

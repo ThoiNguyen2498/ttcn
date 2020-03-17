@@ -1,0 +1,70 @@
+<?php
+if (is_array($dataDH)){
+    foreach ($dataDH as $item){
+        echo '
+            <tr>
+                <td class="maSP"><a href="http://localhost/tmobile/nhan-vien/xemThongTinDonHang?maDonHang='.$item['maDonHang'].'">'.$item['maDonHang'].'</a> </td>
+                <td class="tenSP">'.$item['tenSP'].'</td>
+                <td class="soLuong">'.$item['soLuong'].'</td>
+                <td>'.number_format($item['tongTien']).'</td>
+                <td>'.$item['tenNguoiDung'].'</td>
+                <td>'.$item['diaChi'].'</td>
+        ';
+        switch ($item['trangThai']){
+            case "Chờ Duyệt":
+                echo '
+                    <td class="tdHD">
+                        <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$item['maDonHang'].'&trangThai=Đã Nhận&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Nhận Đơn</a>
+                        <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$item['maDonHang'].'&trangThai=Đã Hủy&link=http://localhost/tmobile/nhan-vien/showAllDonHang" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Hủy Đơn</a>
+                    </td>
+                ';
+                break;
+            case "Đã Nhận":
+                echo '
+                    <td class="tdHD">
+                        <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$item['maDonHang'].'&trangThai=Đang Giao&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Giao Hàng</a>
+                        <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$item['maDonHang'].'&trangThai=Đã Hủy&link=http://localhost/tmobile/nhan-vien/showAllDonHang" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Hủy Đơn</a>
+                    </td>
+                ';
+                break;
+            case "Đang Giao":
+                echo '
+                    <td class="tdHD">
+                        <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$item['maDonHang'].'&trangThai=Xong&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Thành Công</a>
+                        <a class="btnXN" style="text-decoration: none;" href="http://localhost/tmobile/nhan-vien/xuLyDonHang?maDonHang='.$item['maDonHang'].'&trangThai=Thất Bại&link=http://localhost/tmobile/nhan-vien/showAllDonHang">Thất Bại</a>
+                    </td>
+                ';
+                break;
+            case "Xong":
+                echo '
+                    <td class="tdHD">
+                        Giao thành công
+                    </td>
+                ';
+                break;
+            case "Đã Hủy":
+                echo '
+                    <td class="tdHD">
+                        Đã hủy
+                    </td>
+                ';
+                break;
+            case "Thất Bại":
+                echo '
+                    <td class="tdHD">
+                        Thất bại
+                    </td>
+                ';
+                break;
+        }
+    }
+}else{
+    echo '
+        <tr>
+            <th colspan="7" style="text-align: center">
+                <i style="color: red">Bạn đã xem đến đơn hàng cuối cùng</i>
+            </th>
+        </tr>
+    ';
+}
+?>

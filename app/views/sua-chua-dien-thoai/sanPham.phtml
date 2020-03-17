@@ -1,0 +1,463 @@
+<?php $this->assets->outputCss('cssscdt'); ?>
+<section class="container">
+    <div class="breadcrumb">
+        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="http://localhost/tmobile/"><span itemprop="name">Trang chủ</span></a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="http://localhost/tmobile/sua-chua-dien-thoai/"><span itemprop="name">Sửa chữa điện thoại</span></a>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ul>
+    </div> 
+    <div class="product-title">
+        <h1 class="title"><?php echo $data['tenSP'];?></h1>
+        <div class="rating-show-start">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <a href="#" class="rating-show-count">(<span>4</span> đánh giá)</a>
+        </div> 
+    </div>
+    <div class="product-content-box">
+        <div class="product-slide-image">
+            <ul id="image-gallery" class="gallery list-unstyled">
+                <li data-thumb="/tmobile/files/hinh-sp/<?php echo $listHinh[0]; ?>" data-src="/tmobile/files/hinh-sp/<?php echo $listHinh[0]; ?>" data-sub-html="<?php echo $data['tenSP'];?>">
+                    <a href="#">
+                        <img src="/tmobile/files/hinh-sp/<?php echo $listHinh[0]; ?>" alt="<?php echo $listHinh[0]; ?>" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="product-price-box">
+            <div class="product-price-content">
+                <div id="services_price_table">
+                    <table style="height: 85px;" width="829">
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><strong>STT</strong></td>
+                                <td style="text-align: center;"><strong>Model Sử dụng</strong></td>
+                                <td style="text-align: center;"><strong>Giá</strong></td>
+                                <td style="text-align: center;"><strong>Linh kiện</strong></td>
+                            </tr>
+                            <?php
+                                for ($i=0;$i<count($listModel);$i++){
+                                    $stt = $i+1;
+                                    for ($j = count($listModel);$j>=0;$j--){
+                                        if (isset($listGia[$j]) && $listGia[$j] > 0){
+                                            $gia = $listGia[$j];
+                                            break;
+                                        }
+                                    }
+                                    echo '
+                                        <tr>
+                                            <td style="text-align: center;">'.$stt.'</td>
+                                            <td style="text-align: center;">'.$listModel[$i].'</td>
+                                            <td style="text-align: center;">'.number_format($gia).' ₫</td>
+                                            <td style="text-align: center;">Chính hãng</td>
+                                        </tr>
+                                    ';
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                    <p>Lưu ý: Giá trên áp dụng cho khách hàng lẻ và chưa bao gồm công tháo lắp</p>
+                </div>
+            </div>
+            <div class="sale-box">
+                <p class="sale-box-title">Ưu đãi độc quyền tại TMobile Care</p>
+                <ul>
+                    <li>Miễn phí cài đặt phần mềm</li>
+                    <li>Tặng tấm dán màn hình chống xước</li>
+                    <li>Tặng Gift Cards giảm giá sửa chữa <span style="color: #ff0000;">50.000₫</span></p></li>
+                </ul>
+            </div>
+            <div class="product-info-general">
+                <ul>
+                    <li>Thời gian sửa chữa bảo hành lấy ngay từ 1 - 2 tiếng (Tùy độ khó)</li>
+                    <li>Hoàn tiền 100% nếu không hài lòng</li>
+                    <li>Kiểm tra máy miễn phí không sửa không sao</li>
+                </ul>
+            </div>
+            <div class="buy-box" style="margin-bottom: 15px;">
+                <a href="http://localhost/tmobile/nguoi-dung/datLichSua?maSP=<?php echo $data['maSP']?>" class="datLichTruoc" style="background: #fa9d4d">Đặt lịch trước <span>Ưu tiên, không chờ đợi</span></a>
+                <a href="javascript:;" class="buy-pay-later">MUA LINH KIỆN <span>Chỉ mua linh kiện</span></a>
+            </div>
+            <p style="margin-top: 5px;color: #58595b">
+                Phục vụ: <strong>8h30 đến 20h30 tất cả các ngày trong tuần</strong>
+            </p>
+        </div>
+        <div id="detail-address">
+            <div class="detail-address-title">Địa chỉ sửa chữa gần bạn</div>
+            <div class="detail-address-main">
+                <select class="detail-address-select">
+                    <option value="1">Thái Nguyên</option>
+                    <option value="2">Bắc giang</option>
+                </select>
+                <div class="detail-address-group" data-hidden="1">
+                    <div class="detail-address-item">
+                        <p class="name">120 Thái Hà, Q. Đống Đa</p>
+                        <p class="hotline">
+                        <a href="tel:0374379999">037.437.9999</a> </p>
+                    </div>
+                </div>
+                <div class="detail-address-group" data-hidden="2">
+                    <div class="detail-address-item">
+                        <p class="name">123 Trần Quang Khải, Q.1</p>
+                        <p class="hotline">
+                        <a href="tel:0969520520">0969.520.520</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="service-related-box">
+            <div class="service-related-title">Dịch vụ liên quan</div>
+            <div class="service-related-content">
+                <?php
+                    if ( is_array($dataSCGY)) {
+                        foreach ($dataSCGY as $item) {
+                            echo '
+                                <div class="service-related-item">
+                                    <div class="service-related-item-image">
+                                        <a target="_blank" href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/' . $item['maSP'] . '">
+                                            <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/' . $item['hinhAnh'] . '" alt="' . $item['tenSP'] . '">
+                                        </a>
+                                    </div>
+                                    <div class="service-related-item-info">
+                                        <p class="name"><a target="_blank" href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/' . $item['maSP'] . '">' . $item['tenSP'] . '</a></p>
+                                        <p class="price">' . number_format($item['gia']) . ' ₫</p>
+                                        <a target="_blank" href="http://localhost/tmobile/sua-chua-dien-thoai/sanPham/' . $item['maSP'] . '" class="buy">Mua</a>
+                                    </div>
+                                </div>
+                            ';
+                        }
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="product-content-box fix-content-right">
+        <div class="product-content-left">
+            <div class="product-tabs">
+                <ul>
+                    <li><a data-scroll href="#detail">Mô tả</a></li>
+                    <li><a data-scroll href="#comment">Đánh giá</a></li>
+                </ul>
+            </div>
+            <div class="product-detail" id="detail">
+            </div>
+            <div class="comment-box" id="comment">
+                <div class="comment-box-title">
+                    <h4>Đánh giá <?php echo $data['tenSP'];?></h4>
+                    <input type="hidden" id="maSP" value="<?php echo $data['maSP'];?>">
+                </div>
+                <div class="comment-vote">
+                    <div class="comment-vote__star">
+                        <div class="comment-vote__star-number">5/5</div>
+                        <div class="comment-vote__star-star">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="comment-vote__star-total">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="comment-vote__percent">
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">5 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['5Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['5Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">4 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['4Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['4Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">3 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['3Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['3Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">2 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['2Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['2Sao'] ?></div>
+                        </div>
+                        <div class="comment-vote__percent-item">
+                            <div class="comment-vote__percent-star">1 Sao</div>
+                            <div class="comment-vote__percent-progress">
+                                <span style="width:<?php echo $thongKeDG['1Sao']/$thongKeDG['tong']*100; ?>%"><span class="progress-hidden">compelete</span></span>
+                            </div>
+                            <div class="comment-vote__percent-number"><?php echo $thongKeDG['1Sao'] ?></div>
+                        </div>
+                    </div>
+                    <div class="comment-vote__btn">
+                        <p>Bạn có vấn đề cần tư vấn?</p>
+                        <a href="javascript:;" id="show-comment-form">Gửi đánh giá</a>
+                    </div>
+                </div>
+                <div class="comment-form">
+                    <form action="" name="comment-form-client">
+                        <div class="product-rating">
+                            <p>Bạn chấm sản phẩm này bao nhiêu sao? </p>
+                            <input type="hidden" id="rating" value="5" name="rating">
+                            <div class="rating-star">
+                                <i class="fa start fa-star" data-value="1" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="2" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="3" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="4" aria-hidden="true"></i>
+                                <i class="fa start fa-star" data-value="5" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="comment-content-text">
+                            <textarea name="content" id="content" placeholder="Mời bạn để lại đánh giá,bình luận (Vui lòng nhập tiếng việt có dấu)"></textarea>
+                        </div>
+                        <div class="comment-name-and-email">
+                            <input type="text" name="name" id="name" placeholder="Họ và Tên..." aria-describedby="basic-addon1" required="">
+                            <input type="text" name="phone" id="phone" placeholder="Số siện thoại" aria-describedby="basic-addon1" required="">
+                            <input type="email" name="email" id="email" placeholder="Email" aria-describedby="basic-addon1" required="">
+                        </div>
+                        <div class="comment-btn">
+                            <button type="button" id="btnGui">Gửi</button>
+                            <a href="javascript:;" id="close-comment-form"><i class="fa fa-remove" aria-hidden="true"></i> Hủy</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="comment-search">
+                    <input type="text" name="search_comment" id="search_comment" placeholder="Tìm theo nội dung, người gửi,...">
+                </div>
+                <div class="comment-list">
+                    <?php
+                    if (isset($dataDanhGia)){
+                        foreach ($dataDanhGia as $item){
+                            echo '
+                                <div class="comment-item">
+                                    <div class="comment-avatar">
+                                        <span class="avatar">X</span>
+                                    </div>
+                                    <div class="comment-info">
+                                        <div class="comment-title">
+                                            <div class="comment-name">
+                                                <p class="name">'.$item['hoTen'].'</p>
+                                                <p class="phone">'.substr($item['sdt'],0,7).'xx</p>
+                                            </div>
+                                            <div class="comment-star">';
+                            for ($k=1;$k<=5;$k++){
+                                if ($k <= $item['soSao']){
+                                    echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                }else{
+                                    echo "<i class='fa fa-star-o' aria-hidden='true'></i>";
+                                }
+
+                            }
+                            echo '  
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="comment-content">'.$item['noiDung'].'</div>
+                                        <div class="comment-footer">
+                                            <p class="time">'.$item['ngayDang'].'</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ';
+                        }
+                    }
+                    ?>
+
+                </div>
+                <div class="comment-pagination">
+                    <ul id="pagination"></ul>
+                </div>
+            </div>
+            <div class="fb-comment-box">
+                <div class="social_box">
+                    <ul>
+                        <li>
+                            <div class="fb-like fb_iframe_widget" data-href="https://TMobile.vn/dich-vu/thay-pin-samsung-a6-plus.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accessories-related-box">
+                <div class="accessories-related-title">Phụ kiện liên quan</div>
+                <div class="accessories-related-list">
+                    <?php
+                        if (is_array($dataPKGY)){
+                            foreach ($dataPKGY as $item){
+                                echo '
+                                <div class="accessories-related-item">
+                                    <div class="image">
+                                        <a target="_blank" href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'">
+                                        <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['tenSP'].'">
+                                    </a>
+                                    </div>
+                                    <p class="name"><a target="_blank" href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'">'.$item['tenSP'].'</a></p>
+                                    <p class="price">'.number_format($item['gia']).' ₫</p>
+                                </div>
+                            ';
+                            }
+                        }
+
+                    ?>
+
+                </div>
+            </div>
+        </div>
+        <div class="product-content-right">
+            <style>
+            .events {
+                width: 100%;
+                margin: 15px 0;
+                font-size: 13px;
+                line-height: 17px;
+            }
+            .event-title {
+                margin-bottom: 5px;
+                font-size: 14px;
+            }
+            .event-description, .event-venue {
+                margin-top: 10px;
+            }
+            .events a {
+                color: blue;
+            }
+            </style>
+            <div class="events clearfix">
+                <div itemscope="" itemtype="http://schema.org/Event" class="event-item">
+                    <img style="display: none;" itemprop="image" src="https://sudospaces.com/TMobile-vn/images/2020/03/dan-chong-xuoc.jpg" alt="dan-chong-xuoc-dien-thoai" />
+                    <p itemprop="name" class="event-title">
+                        <strong>Quà tặng - Miếng dán chống xước điện thoại Miễn Phí</strong>
+                    </p>
+                    <p class="event-description" itemprop="description">Khách hàng sửa chữa / thay thế mặt kính, màn hình cảm ứng điện thoại sẽ nhận miếng dán chống xước màn hình Miễn Phí</p>
+                    <p>
+                        <span itemprop="startDate" content="2020-01-10T00:00">từ 10/01/20 00:00</span>
+                        <span itemprop="endDate" content="2020-12-31T23:59">đến 31/12/20 23:59</span>
+                    </p>
+                </div>
+                <br>
+                <div itemscope="" itemtype="http://schema.org/Event" class="event-item">
+                    <img style="display: none;" itemprop="image" src="" alt="the-giftcard-giam-gia-dich-vu" />
+                    <p itemprop="name" class="event-title">
+                        <strong>Nhận ngay Voucher giảm giá 50K cho mọi dịch vụ</strong>
+                    </p>
+                    <p class="event-description" itemprop="description">100% khách hàng sử dụng dịch vụ tại TMobile sẽ nhận được Voucher giảm giá 50K áp dụng cho sửa chữa / thay thế</p>
+                    <p>
+                        <span itemprop="startDate" content="2020-01-05T00:00">từ 05/01/20 00:00</span>
+                        <span itemprop="endDate" content="2020-12-31T23:59">đến 31/12/20 23:59</span>
+                    </p>
+                </div>
+                <br>
+                <div itemscope="" itemtype="http://schema.org/Event" class="event-item">
+                    <img style="display: none;" itemprop="image" src="https://sudospaces.com/TMobile-vn/images/2020/03/tu-van-mien-phi.jpg" alt="tu-van-mien-phi" />
+                    <p itemprop="name" class="event-title">
+                        <strong> Miễn Phí vệ sinh máy, tư vấn dịch vụ - Không sửa không sao</strong>
+                    </p>
+                    <p class="event-description" itemprop="description">Kiểm tra máy Miễn Phí, tư vấn dịch vụ không sửa không sao. Vệ sinh, cài đặt phần mềm Miễn Phí cho 100% khách sử dụng dịch vụ</p>
+                    <p>
+                        <span itemprop="startDate" content="2020-01-01T00:00">từ 01/01/20 00:00</span>
+                        <span itemprop="endDate" content="2020-12-31T23:59">đến 31/12/20 23:59</span>
+                    </p>
+
+                </div>
+            </div> 
+            <div class="product-summary">
+                <p class="product-summary-title"><?php echo $data['tenSP']?></p>
+                <p class="product-summary-price"><?php echo number_format($listGia[0])?> ₫</p>
+                <div class="sale-box">
+                    <p class="sale-box-title">Khuyến mãi</p>
+                    <ul>
+                        <li>Miễn phí cài đặt phần mềm</li>
+                        <li>Tặng tấm dán màn hình chống xước</li>
+                        <li>Tặng Gift Cards giảm giá sửa chữa <span style="color: #ff0000;">50.000 ₫</span></p></li>
+                    </ul>
+                </div>
+                <div class="buy-box">
+                    <a href="" class="buy-now">Đặt lịch trước <span>Ưu tiên, không chờ đợi</span></a>
+                    <a href="javascript:;" class="buy-pay-later">MUA LINH KIỆN <span>Chỉ mua linh kiện</span></a>
+                </div>
+                <div class="product-summary-address">
+                    <span><strong>0989.898.989</strong> (BG)</span>
+                    <span><strong>0968.686.868</strong> (TN)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="popup">
+    <div class="popup_title">
+        <p class="title"><?php echo $data['tenSP']?></p>
+        <span class="popup_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+    </div>
+    <div class="popup_main">
+        <div class="popup_product_info">
+            <div class="popup-product-image">
+                <img src="/tmobile/files/hinh-sp/<?php echo $listHinh[0]?>" alt="<?php echo $data['tenSP']?>" />
+            </div>
+            <p class="popup_product_title"><?php echo $data['tenSP']?></p>
+            <p class="popup_product_price" data-realprice="Liên hệ"><?php echo number_format($listGia['0'])?> ₫</p>
+            <div class="clearfix"></div>
+            <div class="popup-custom-param-list">
+            </div>
+        </div>
+        <div class="popup_customer_info">
+            <p class="popup_customer_info_title">Thông tin người mua</p>
+            <form action="http://localhost/tmobile/nguoi-dung/datHang/" method="post">
+                <input type="hidden" id="type_order" value="services">
+                <select id="customer-gender" name="customer-gender">
+                    <option value="1">Anh</option>
+                    <option value="2">Chị</option>
+                </select>
+                <input type="text" id="customer-name" name="ten" placeholder="Họ tên bạn (bắt buộc)" aria-describedby="basic-addon1" required="">
+                <input type="text" id="customer-phone" name="sdt" placeholder="Số điện thoại (bắt buộc)" aria-describedby="basic-addon1" required="">
+                <input type="text" id="customer-email" name="email" placeholder="Địa chỉ email (bắt buộc)" aria-describedby="basic-addon1" required="">
+                <input type="hidden" name="danhMuc" class="danhMuc" value="SanPhamSuaChua">
+                <input type="hidden" name="cheDoBH" class="cheDoBH" value="0">
+                <input type="hidden" name="maSP" value="<?php echo $data['maSP'];?>">
+                <input type="hidden" name="mauSac" class="mauSac" value="0">
+                <select id="customer-location" name="customer-location">
+                    <option value="1" selected>Thái Nguyên</option>
+                    <option value="2">Bắc Giang</option>
+                </select>
+                <textarea id="customer-address" name="diaChiNhanHang" placeholder="Địa chỉ nhận hàng" aria-describedby="basic-addon1" required=""></textarea>
+                <textarea id="order-note" name="ghiChu" placeholder="Ghi chú đơn hàng"></textarea>
+                <button class="btn-submit-buynow" data-id="2577">Đặt hàng ngay</button>
+            </form>
+        </div>
+    </div>
+</div>
+<?php $this->assets->outputJs('jsscdt'); ?>
+<script>
+    $(document).ready(function () {
+        $("#btnGui").click(function () {
+            var content = $("#content").val();
+            var soSao = $("#rating").val();
+            var tenND = $("#name").val();
+            var sdt = $("#phone").val();
+            var email = $("#email").val();
+            var maSP =$("#maSP").val();
+            if (sdt.length <=0){
+                alert("Bạn cần nhập số điện thoại đã mua sản phẩm này để đánh giá!");
+                return 0;
+            }
+            $.post("http://localhost/tmobile/nguoi-dung/danhGia",{maSP:maSP,soSao:soSao,hoTen:tenND,sdt:sdt,noiDung:content},function (data) {
+                alert(data);
+            });
+        })
+    })
+</script>

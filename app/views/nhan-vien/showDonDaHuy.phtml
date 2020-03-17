@@ -1,0 +1,111 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Đơn hàng thất bại
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý đơn hàng</a></li>
+		 	<li class="active">Đơn hàng thất bại</li>
+		 	<select id="listSP" style="float: right; border: none;">
+		 		<option>Tất cả</option>
+				<option>Điện thoại</option>
+				<option>Phụ kiện</option>
+				<option>Sửa chữa</option>
+			</select>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="border-bottom: 1px solid #f3e4e4; padding-bottom: 5px;" colspan="7">
+                        <input style="width: 90%" type="text" name="keyword" id="keyword_mobile" autocomplete="off" placeholder="Tìm kiếm đơn hàng ...">
+                        <button><i class="fa fa-search" aria-hidden="true"></i></button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>Mã đơn hàng</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                    <th>Tên người dùng</th>
+                    <th>Địa chỉ</th>
+                    <th>Hành động/Trạng thái</th>
+                </tr>
+                <tbody class="tbBody">
+                <?php
+                if (is_array($dataDH)){
+                    foreach ($dataDH as $item){
+                        echo '
+                                <tr>
+                                    <td class="maSP"><a href="http://localhost/tmobile/nhan-vien/xemThongTinDonHang?maDonHang='.$item['maDonHang'].'">'.$item['maDonHang'].'</a> </td>
+                                    <td class="tenSP">'.$item['tenSP'].'</td>
+                                    <td class="soLuong">'.$item['soLuong'].'</td>
+                                    <td>'.number_format($item['tongTien']).'</td>
+                                    <td>'.$item['tenNguoiDung'].'</td>
+                                    <td>'.$item['diaChi'].'</td>
+                                    <td class="tdHD">
+                                        Đã hủy
+                                    </td>
+                            ';
+                    }
+                }
+                ?>
+                </tbody>
+                <tr>
+                    <th colspan="7" style="text-align: center">
+                        <a class="xemThem" id="btnXemThem" href="javascript:;">Xem thêm</a>
+                        <input type="hidden" id="soTrang" value="1">
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<?php
+$vitri=5;
+?>
+<style>
+    td,th{
+        padding: 5px;
+        border: 1px solid #e1dde4;
+    }
+    td{
+
+    }
+    .maSP{
+        width: 120px;
+    }
+    .soLuong{
+        width: 48px;
+    }
+    .btnXN{
+        border: 1px solid #9feaab;
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: -2px;
+        text-decoration: none;
+        background: #c4fdc4;
+    }
+    .btnXN:hover{
+        background: #76f576;
+    }
+    .tdHD{
+        width: 162px;
+    }
+</style>
+<?php $this->assets->outputJs('js'); ?>
+<script>
+    $(document).ready(function () {
+        $("#btnXemThem").click(function () {
+            var soTrang = parseInt($("#soTrang").val())+1;
+            $("#soTrang").val(soTrang);
+            $.get("http://localhost/tmobile/nhan-vien/loadListDH",{soTrang:soTrang,trangThai:"all"},function (data) {
+                $("#tbBody").append(data);
+            })
+        })
+    })
+</script>

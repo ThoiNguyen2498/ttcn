@@ -1,0 +1,107 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Tất cả sản phẩm
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý sản phẩm</a></li>
+		 	<li class="active">Tất cả sản phẩm</li>
+		 	<select id="listSP" style="float: right; border: none;">
+				<option value="DienThoai" <?php if (!isset($indexMenu)) echo "selected=\"selected\""; ?> >Điện thoại</option>
+				<option value="PhuKien" <?php if (isset($indexMenu) && $indexMenu=="PK") echo "selected=\"selected\""; ?>>Phụ kiện</option>
+				<option value="SanPhamSuaChua" <?php if (isset($indexMenu) && $indexMenu=="SC") echo "selected=\"selected\""; ?>>Sửa chữa</option>
+			</select>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb">
+			<table style="width: 100%;">
+				<tr>
+					<td style="border-bottom: 1px solid #f3e4e4; padding-bottom: 5px;" colspan="6">
+			            <input style="width: 90%" type="text" name="keyword" id="keyword" placeholder="Tìm kiếm sản phẩm ...">
+			            <button type="button" id="btnTimSP"><i class="fa fa-search" aria-hidden="true"></i></button>
+					</td>
+				</tr>
+				<tr>
+					<th>Hình ảnh</th>
+					<th>Mã sản phẩm</th>
+					<th>Tên sản phẩm</th>
+					<th>Số lượng</th>
+					<th>Giá</th>
+					<th>Hành động</th>
+				</tr>
+                <tbody id="tbBody">
+                <?php
+                    foreach ($data as $item){
+                        echo '
+                            <tr>
+                                <td><img width="100px" src="/tmobile/files/hinh-sp/'.$item["hinhAnh"].'" alt="Image" ></td>
+                                <td style="max-width: 150px">'.$item["maSP"].'</td>
+                                <td style="max-width: 150px">'.$item["tenSP"].'</td>
+                                <td>'.$item["soLuong"].'</td>
+                                <td >'.$item["gia"].'</td>
+                                <td>
+                                    <a href="http://localhost/tmobile/nhan-vien/suaThongTin'.$indexMenu.'?maSP='.$item["maSP"].'">Sửa</a>
+                                    <br>
+                                    <a href="http://localhost/tmobile/nhan-vien/xoaSP?maSP='.$item["maSP"].'&danhMuc='.$indexMenu.'" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Xóa</a> 
+                                </td>
+                            </tr>
+                        
+                        ';
+                    }
+                ?>
+                </tbody>
+                <tr>
+                    <th colspan="7" style="text-align: center">
+                        <a class="xemThem" id="btnXemThem" href="javascript:;">Xem thêm</a>
+                        <input type="hidden" id="soTrang" value="1">
+                    </th>
+                </tr>
+			</table>
+		</form>
+	</div>
+</div>
+<style>
+    td{
+        border: 1px solid beige;
+        padding: 5px;
+    }
+</style>
+<?php
+	$vitri=2;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#listSP').change(function () {
+            var menu= $('#listSP').val();
+            if (menu == "DienThoai") {
+                window.location.href = 'http://localhost/tmobile/nhan-vien/showsp';
+            }else{
+                if (menu == "PhuKien") {
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/showsp?danhMuc=PhuKien';
+                }else{
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/showsp?danhMuc=SanPhamSuaChua';
+                }
+            }
+        });
+        $("#btnTimSP").click(function () {
+            var danhMuc = $("#listSP").val();
+            var keyWord = $("#keyword").val();
+            $.get("http://localhost/tmobile/nhan-vien/timSP",{danhMuc:danhMuc,keyWord:keyWord},function (data) {
+                $("#tbBody").empty();
+                $("#tbBody").html(data);
+            })
+        });
+        $("#btnXemThem").click(function () {
+            var danhMuc = $("#listSP").val();
+            var soTrang = parseInt($("#soTrang").val())+1;
+            $("#soTrang").val(soTrang);
+
+            $.get("http://localhost/tmobile/nhan-vien/loadListSP",{danhMuc:danhMuc,soTrang:soTrang},function (data) {
+                $("#tbBody").append(data);
+            })
+        })
+    })
+</script>

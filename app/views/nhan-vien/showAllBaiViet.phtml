@@ -1,0 +1,78 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Tất cả bài viết
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý bài viết</a></li>
+		 	<li class="active">Tất cả bài viết</li>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb" method="post" enctype="multipart/form-data">
+			<table style="width: 100%;">
+				<tr>
+					<td style="border-bottom: 1px solid #f3e4e4; padding-bottom: 5px;" colspan="6">
+			            <input style="width: 90%" type="text" name="keyword" id="keyword_mobile" autocomplete="off" placeholder="Tìm kiếm sản phẩm ...">
+			            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+
+					</td>
+				</tr>
+				<tr>
+					<th>Tên bài viết</th>
+					<th>Mã bài viết</th>
+					<th>Mã sản phẩm</th>
+					<th>Ngày đăng</th>
+                    <th>Hành động</th>
+				</tr>
+                <tbody>
+                <?php
+                    foreach ($data as $item){
+                        echo '
+                            <tr>
+                                <td>'.$item['tenBaiViet'].'</td>
+                                <td>'.$item["maBaiViet"].'</td>
+                                <td>'.$item["maSP"].'</td>
+                                <td>'.$item["ngayDang"].'</td>
+                                <td>
+                                    <a href="http://localhost/tmobile/nhan-vien/suaThongTinBaiViet?maBaiViet='.$item["maBaiViet"].'">Sửa</a>
+                                    <br>
+                                    <a href="http://localhost/tmobile/nhan-vien/xoaBaiViet?maBaiViet='.$item["maBaiViet"].'" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Xóa</a> 
+                                </td>
+                            </tr>
+                        
+                        ';
+                    }
+                ?>
+                </tbody>
+                <tr>
+                    <th colspan="7" style="text-align: center">
+                        <a class="xemThem" href="javascript:;">Xem thêm</a>
+                    </th>
+                </tr>
+			</table>
+		</form>
+	</div>
+</div>
+<?php
+	$vitri=6;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#listSP').change(function () {
+            var menu= $('#listSP').val();
+            if (menu == "Điện thoại") {
+                window.location.href = 'http://localhost/tmobile/nhan-vien/showsp';
+            }else{
+                if (menu == "Phụ kiện") {
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/showsp?danhMuc=PhuKien';
+                }else{
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/showsp?danhMuc=SanPhamSuaChua';
+                }
+            }
+
+        });
+    })
+</script>

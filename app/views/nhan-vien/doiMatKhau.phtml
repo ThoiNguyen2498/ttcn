@@ -1,0 +1,84 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Đổi mật khẩu
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a class="menu" href="#">Quản lý tài khoản</a></li>
+            <li class="active">đổi mật khẩu</li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table width="100%" id="tblThemTT">
+                <tr style="height: 50px">
+                    <th colspan="2"><h2 style="">ĐỔI MẬT KHẨU</h2></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="180px">Tên tài khoản: <i style="color: red">*</i></th>
+                    <td><input type="text" id="tenTK" class="form-control form-control-lg" value="<?php echo $dataTK['username'] ?>" disabled name="" placeholder="Nhập mã sản phẩm" aria-describedby="basic-addon1" required="">
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="180px">Mật khẩu cũ: <i style="color: red">*</i></th>
+                    <td><input type="password" class="form-control form-control-lg" name="matKhau" placeholder="Nhập mật khẩu cũ" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="180px">Mật khẩu mới: <i style="color: red">*</i></th>
+                    <td><input type="password" class="form-control form-control-lg" id="matKhauMoi" name="matKhauMoi" placeholder="Nhập mật khẩu mới" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="180px">Nhập lại mật khẩu mới: <i style="color: red">*</i></th>
+                    <td>
+                        <input type="password" class="form-control form-control-lg" id="matKhauMoi2" name="matKhauMoi2" placeholder="Nhập lại mật khẩu mới" aria-describedby="basic-addon1" required="">
+                        <i style="color: red" class="thongBao"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center">
+                        <input type="submit" name="btnDoiMatKhau" id="btnDoiMK" style="border-radius: 3px" value="ĐỔI MẬT KHẨU">
+                    </th>
+                </tr>
+            </table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#matKhauMoi").change(function () {
+            var matKhauMoi = $("#matKhauMoi").val();
+            var matKhauMoi2 = $("#matKhauMoi2").val();
+            if (kiemTraMKMoi(matKhauMoi,matKhauMoi2)){
+                $("#btnDoiMK").readOnly(false);
+                $(".thongBao").html(" ");
+            }else {
+                $(".thongBao").html("* Nhập lại mật khẩu không khớp!");
+                $("#btnDoiMK").readOnly(true);
+            }
+        });
+        $("#matKhauMoi2").keyup(function () {
+            var matKhauMoi = $("#matKhauMoi").val();
+            var matKhauMoi2 = $("#matKhauMoi2").val();
+            if (kiemTraMKMoi(matKhauMoi,matKhauMoi2)){
+                $(".thongBao").html(" ");
+                $("#btnDoiMK").prop('disabled', false);
+            }else {
+                $(".thongBao").html("* Nhập lại mật khẩu không khớp!");
+                $("#btnDoiMK").prop('disabled', true);
+            }
+        });
+        function kiemTraMKMoi(matKhauMoi, matKhauMoi2) {
+            if (matKhauMoi != matKhauMoi2){
+                return false;
+            }else {
+                return true;
+            }
+        }
+    });
+</script>

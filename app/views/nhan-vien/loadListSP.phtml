@@ -1,0 +1,27 @@
+<?php
+if (isset($data) && is_array($data)){
+    foreach ($data as $item){
+        echo '
+            <tr>
+                <td><img width="100px" src="/tmobile/files/hinh-sp/'.$item["hinhAnh"].'" alt="Image" ></td>
+                <td style="max-width: 150px">'.$item["maSP"].'</td>
+                <td style="max-width: 150px">'.$item["tenSP"].'</td>
+                <td>'.$item["soLuong"].'</td>
+                <td>'.$item["gia"].'</td>
+                <td>
+                    <a href="http://localhost/tmobile/nhan-vien/suaThongTin'.$keyDanhMuc.'?maSP='.$item["maSP"].'">Sửa</a>
+                    <br>
+                    <a href="http://localhost/tmobile/nhan-vien/xoaSP?maSP='.$item["maSP"].'&danhMuc='.$keyDanhMuc.'" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Xóa</a> 
+                </td>
+            </tr>
+            
+            ';
+    }
+}else{
+    echo '
+        <tr style="text-align: center">
+            <td colspan="6" style="color: red">Bạn đã xem đến sản phẩm cuối cùng</td>
+        </tr>   
+    ';
+}
+?>

@@ -1,0 +1,59 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Thêm sản phẩm
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý sản phẩm</a></li>
+		 	<li class="active">Thêm sản phẩm Excel</li>
+		 	<select id="listSP" style="float: right; border: none;">
+				<option value="DienThoai">Điện thoại</option>
+				<option value="PhuKien">Phụ kiện</option>
+				<option value="SanPhamSuaChua">Sửa chữa</option>
+			</select>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb" method="post" enctype="multipart/form-data">
+			<table>
+				<tr style="height: 50px">
+					<th>Chọn đến file Excel cần nhập (Lưu ý cần đúng cấu trúc file cho từng loại mặt hàng )</th>
+				</tr>
+				<tr style="height: 50px">
+					<td>
+						<input type="file" name="fileUpload">
+					</td>
+				</tr>
+				<tr style="height: 50px">
+					<th >
+                        <input type="hidden" id="danhMuc" name="danhMuc" value="DienThoai">
+						<input type="submit" name="themSP" value="Thêm sản phẩm">
+					</th>
+				</tr>
+			</table>
+            <div>
+                <?php
+                    if (isset($ketQua)){
+                        echo $ketQua;
+                    }
+                    if (isset($listSPLoi)){
+                        var_dump($listSPLoi);
+                    }
+                ?>
+            </div>
+		</form>
+		Xem hướng dẫn cấu trúc file các loại mặt hàng <a href="">tại đây.</a>
+	</div>
+</div>
+<?php
+	$vitri=2;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script>
+    $(document).ready(function () {
+        $("#listSP").change(function () {
+            $("#danhMuc").val($("#listSP").val());
+        })
+    })
+</script>

@@ -1,0 +1,59 @@
+<div id="page-wrapper">
+	<div class="header"> 
+        <h1 class="page-header">
+            Tất cả banner
+        </h1>
+		<ol class="breadcrumb">
+		  	<li><a href="#">Home</a></li>
+		  	<li><a class="menu" href="#">Quản lý banner</a></li>
+		 	<li class="active">Tất cả banner</li>
+		</ol> 
+	</div>
+	<div id="page-inner">
+		<form class="breadcrumb">
+			<table style="width: 100%;">
+<!--				<tr>-->
+<!--					<td style="border-bottom: 1px solid #f3e4e4; padding-bottom: 5px;" colspan="6">-->
+<!--			            <input style="width: 90%" type="text" name="keyword" id="keyword" placeholder="Tìm kiếm sản phẩm ...">-->
+<!--			            <button type="button" id="btnTimSP"><i class="fa fa-search" aria-hidden="true"></i></button>-->
+<!--					</td>-->
+<!--				</tr>-->
+				<tr>
+					<th>Hình ảnh</th>
+					<th>link</th>
+					<th>viTri</th>
+				</tr>
+                <tbody id="tbBody">
+                <?php
+                    foreach ($data as $item){
+                        echo '
+                            <tr>
+                                <td style="max-width: 200px"><img style="max-width: 100%" src="/tmobile/files/slideshow/'.$item["hinhAnh"].'" alt="Image" ></td>
+                                <td style="max-width: 150px">'.$item["link"].'</td>
+                                <td style="max-width: 150px">'.$item["viTri"].'</td>
+                                <td>
+                                    <a href="http://localhost/tmobile/nhan-vien/suaBanner?stt='.$item['stt'].'">Sửa</a>
+                                    <br>
+                                    <a href="http://localhost/tmobile/nhan-vien/xoaBanner?stt='.$item['stt'].'" onclick="return confirm(\'Bạn có chắc chắn xóa không ?\')">Xóa</a> 
+                                </td>
+                            </tr>
+                        
+                        ';
+                    }
+                ?>
+                </tbody>
+			</table>
+		</form>
+	</div>
+</div>
+<style>
+    td{
+        border: 1px solid beige;
+        padding: 5px;
+    }
+</style>
+<?php
+	$vitri=7;
+?>
+<?php $this->assets->outputJs('js'); ?>
+

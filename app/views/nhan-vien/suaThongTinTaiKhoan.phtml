@@ -1,0 +1,85 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Sửa thông tài khoản
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a class="menu" href="#">Quản lý tài khoản</a></li>
+            <li class="active">Sửa thông tin tài khoản</li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table width="100%" id="tblThemTT">
+                <tr style="height: 50px">
+                    <th colspan="2"><h2 style="">Sửa thông tin tài khoản</h2></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Họ tên: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="tenNV" value="<?php echo $data['tenNV'];?>" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Năm sinh: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="namSinh" value="<?php echo $data['namSinh'];?>" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Giới tính:</th>
+                    <td><input type="text" class="form-control form-control-lg" name="gioiTinh" value="<?php echo $data['gioiTinh'];?>" placeholder="Nhập loại sản phẩm (cuong-luc,tai-nghe..)"></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Số điện thoại: <i style="color: red">*</i></th>
+                    <td><input type="number" class="form-control form-control-lg" name="sdt" value="<?php echo $data['sdt'];?>" placeholder="Nhập hãng sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Email: </th>
+                    <td><input type="text" class="form-control form-control-lg" name="email" value="<?php echo $data['email'];?>" placeholder="Nhập nếu phụ kiện này dành riêng cho 1 hoặc 1 số model" ></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2">
+                        <input style="width: 100%;" type="submit"  id="luuThongtin" name="luuThongTin" value="Lưu thông tin">
+                    </th>
+                </tr>
+            </table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<?php
+$vitri=2;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#inputMau").change(function () {
+            if ($("#inputMau").val().length <=0){
+
+                var str ='<input type="file" class="" name="file" >';
+                $("#addImg").empty();
+                $("#addImg").append(str);
+                // alert("ok");
+            }else{
+                var listMau = $("#inputMau").val().split(",");
+                var listMauChuan=[];
+                var j =0;
+                for (var i=0; i<listMau.length; i++){
+                    if (listMau[i].trim().length >=1){
+                        listMauChuan[j] = listMau[i].trim().replace(/ /g,"_");
+                        j++;
+                    }
+                }
+                console.log(listMauChuan);
+
+                $("#addImg").empty();
+                for (var i=0; i<listMauChuan.length; i++){
+                    var str ='Ảnh màu '+listMauChuan[i].trim()+'<input type="file" class="" name="file_'+listMauChuan[i].trim()+'" aria-describedby="basic-addon1" required="">';
+                    $("#addImg").append(str);
+                }
+            }
+        });
+    });
+</script><?php

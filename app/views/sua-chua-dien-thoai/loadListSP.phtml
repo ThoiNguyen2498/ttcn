@@ -1,0 +1,28 @@
+<?php
+    if (isset($ketQua)){
+        echo '<p id="ketQua" style="color: #b6834c; text-align: center; font-size: 30px">Bạn đã xem đến sản phẩm cuối cùng.</p>';
+    }else{
+//        var_dump($dataDT);
+        foreach ($dataSC as $item){
+            echo '
+                <div class="service-list-item">
+                    <div class="service-item-image">
+                        <a href="">
+                            <img class="lazy" src="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'" style="">
+                        </a>
+                    </div>
+                        <div class="service-item-info">
+                            <div class="service-item-left">
+                                <p class="name"><a href="" title="'.$item['tenSP'].'">'.$item['tenSP'].'</a></p>
+                                <p class="price">'.number_format($item['gia']).' ₫</p>
+                            </div>
+                            <div class="service-item-right">
+                                <a href="" class="buy">Mua</a>
+                            </div>
+                        </div>
+                </div>
+            ';
+        }
+    }
+?>
+

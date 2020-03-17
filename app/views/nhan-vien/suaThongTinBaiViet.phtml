@@ -1,0 +1,67 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Sửa thông tin bài viết
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a class="menu" href="#">Quản lý bài viết</a></li>
+            <li class="active">Sửa thông tin bài viết</li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table width="100%" id="tblThemTT">
+                <tr style="height: 50px">
+                    <th colspan="2"><h2 style="">Sửa thông tin bài viết</h2></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Mã bài viết: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="maBaiViet" disabled="true" value="<?php echo $data['maBaiViet'];?>" placeholder="Nhập mã bài viết" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Tên bài viết: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="tenBaiViet" value="<?php echo $data['tenBaiViet'];?>" placeholder="Nhập tên bài viết" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Mã sản phẩm: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="maSP" value="<?php echo $data['maSP'];?>" placeholder="Bài viết này cho sản phẩm nào" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2" style="text-align: center"> <h3>Chi tiết bài viết</h3> </th>
+                </tr>
+                <?php
+                    foreach ($dataCT as $i => $item){
+                        $name = "ctbv".$i;
+                        echo '
+                            <tr style="height: 50px">
+                                <td colspan="2" style="text-align: center">
+                                    <input type="hidden" name="stt'.$i.'" value="'.$item['stt'].'">
+                                    <textarea style="height: auto ;width: 100%" name="'.$name.'">'.$item['noiDung'].'</textarea>
+                                </td>
+                            </tr>
+                        ';
+                    }
+                ?>
+                <tr>
+                    <th colspan="2" style="text-align: right; border-top: 1px solid black; padding-top: 5px;">
+                        <input type="submit" name="luuBaiViet" value="Lưu bài viết">
+                    </th>
+                </tr>
+            </table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<?php
+$vitri=6    ;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+    });
+</script><?php

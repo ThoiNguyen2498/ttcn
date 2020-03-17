@@ -1,0 +1,171 @@
+<?php $this->assets->outputCss('csspk'); ?>
+<div class="breadcrumb">
+    <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn"><span itemprop="name">Trang chủ</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="https://mobilecity.vn/phu-kien"><span itemprop="name">Phụ kiện</span></a>
+            <meta itemprop="position" content="2" />
+        </li>
+    </ul>
+</div> <h1 class="intro-accessories-title">Phụ kiện điện thoại</h1>
+<div class="intro-service-content css-content">
+    <a href="javascript:;" class="intro_cate_more" style="display: none;">[ + xem thêm ]</a>
+</div>
+<section class="product-box">
+    <div class="product-fillter-box">
+        <ul>
+            <li>Tìm theo</li>
+            <li>
+                <select id="locGia" class="selectLoc">
+                    <option value="all">Mức giá</option>
+                    <option value="gia<99999">Dưới 100k</option>
+                    <option value="gia>99999_AND_gia<200001">Từ 100k - 200k</option>
+                    <option value="gia>200001_AND_gia<400001">Từ 200k - 400k</option>
+                    <option value="gia>400001_AND_gia<600001">Từ 400k - 600k</option>
+                    <option value="gia>600001_AND_gia<800001">Từ 600k - 800k</option>
+                    <option value="gia>800001">Trên 800k</option>
+
+                </select>
+            </li>
+            <li>
+                <select id="locHang" class="selectLoc">
+                    <option value="all">Phụ kiện theo hãng</option>
+                    <option value="Apple">Apple (iphone)</option>
+                    <option value="SamSung">SamSung</option>
+                    <option value="OnePlus">OnePlus</option>
+                    <option value="Xiaomi">Xiaomi</option>
+                    <option value="Oppo">OPPO (Realme)</option>
+                    <option value="LG">LG</option>
+                    <option value="Asus">Asus</option>
+                    <option value="Nokia">Nokia</option>
+                    <option value="Google">Google</option>
+                    <option value="Meizu">Meizu</option>
+                    <option value="Vsmart">Vsmart</option>
+                    <option value="Sony">Sony</option>
+                    <option value="HTC">HTC</option>
+                    <option value="BKAV">BKAV</option>
+                    <option value="Huawei">Huawei</option>
+                    <option value="khac">Hãng khác</option>
+                </select>
+            </li>
+            <li>
+                <select id="locLoai" class="selectLoc">
+                    <option value="all">Phụ kiện loại</option>
+                    <option value="tai-nghe">Tai nghe</option>
+                    <option value="dong-ho-thong-minh">Đồng hồ thông minh</option>
+                    <option value="cuong-luc">Cường lực</option>
+                    <option value="op">Ốp</option>
+                    <option value="mieng-dan">Miếng dán</option>
+                    <option value="cap-sac">Cáp sạc</option>
+                    <option value="ho-tro-gamer">Hỗ trợ gamer</option>
+                </select>
+            </li>
+            <li>
+                <select id="sapXep" class="selectLoc">
+                    <option value="all">Sắp Xếp</option>
+                    <option value="gia_ASC">Giá từ thấp đến cao</option>
+                    <option value="gia_DESC">Giá từ cao đến thấp</option>
+                    <option value="tenSP_ASC">Tên A-Z</option>
+                    <option value="tenSP_DESC">Tên Z-A</option>
+                </select>
+            </li>
+            <li>
+                <input type="button" id="btnLoc" class="btnLoc" value="Áp dụng">
+            </li>
+            <li>
+            </li>
+        </ul>
+    </div>
+    <div class="product-list">
+        <?php
+        if (is_array($dataPK)){
+            foreach ($dataPK as $item){
+                echo '
+                    <div class="service-list-item">
+                        <div class="service-item-image">
+                            <a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'">
+                                <img class="lazy" src="/tmobile/img/load_video.svg" data-original="/tmobile/files/hinh-sp/'.$item['hinhAnh'].'" alt="'.$item['hinhAnh'].'" style="">
+                            </a>
+                        </div>
+                            <div class="service-item-info">
+                                <div class="service-item-left">
+                                    <p class="name"><a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'" title="'.$item['tenSP'].'">'.$item['tenSP'].'</a></p>
+                                    <p class="price">'.number_format($item['gia']).' ₫</p>
+                                </div>
+                                <div class="service-item-right">
+                                    <a href="http://localhost/tmobile/phu-kien/sanPham/'.$item['maSP'].'" class="buy">Mua</a>
+                                </div>
+                            </div>
+                    </div>
+                ';
+            }
+        }
+        ?>
+
+    </div>
+    <div class="view-ajax-more">
+        <img src="https://mobilecity.vn/public/assets/img/load_video.svg" alt="load_video">
+    </div>
+    <div class="viewmore">
+        <input type="hidden" id="page" value="1">
+        <a class="more" href="javascript:;">Xem thêm phụ kiện</a>
+    </div>
+</section>
+<?php $this->assets->outputJs('jspk'); ?>
+<script>
+    $(document).ready(function () {
+        $('#btnLoc').click(function () {
+            var gia = $("#locGia").val();
+            var hang = $("#locHang").val();
+            var locLoai = $("#locLoai").val();
+            var sapXep = $("#sapXep").val();
+
+            var link="";
+            if (gia != "all"){
+                link = link+gia;
+            }
+            if (hang != "all"){
+                if (link.length <= 0){
+                    link = link + "hang_LIKE_'%"+hang+"%'";
+                }else{
+                    link = link + "&" + "hang_LIKE_'%"+hang+"%'";
+                }
+            }
+            if (locLoai != "all"){
+                if (link.length <= 0){
+                    link = link + "loai_LIKE_'%"+locLoai+"%'";
+                }else{
+                    link = link + "&" + "loai_LIKE_'%"+locLoai+"%'";
+                }
+            }
+            if (sapXep != "all"){
+                if (link.length <= 0){
+                    link = link + "order="+sapXep;
+                }else{
+                    link = link + "&" + "order="+sapXep;
+                }
+            }
+            window.location="http://localhost/tmobile/phu-kien?"+link;
+        })
+    });
+</script>
+<style>
+    .selectLoc{
+        padding: 7px 8px;
+        display: block;
+        border: none;
+        margin: 5px;
+        padding: 3px;
+        background: linear-gradient(to bottom,#ffffff 0%,#f1d8d8 100%);
+        border-radius: 5px;
+    }
+    .btnLoc{
+        margin: 5px;
+        padding: 3px;
+        background: linear-gradient(to bottom,#ffffff 0%,#eca5a5 100%);
+        border-radius: 5px;
+    }
+</style>

@@ -1,0 +1,151 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Thêm bài viết
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a class="menu" href="#">Quản lý bài viết</a></li>
+            <li class="active">Thêm bài viết</li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table width="100%" id="tblThemTT">
+                <tr style="height: 50px">
+                    <th colspan="2"><h2 style="">THÊM BÀI VIẾT</h2></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Mã bài viết: <i style="color: red">*</i></th>
+                    <td><input type="text" id="maBV" class="form-control form-control-lg" name="maBV" placeholder="Nhập mã sản phẩm" aria-describedby="basic-addon1" required="">
+                        <div class="thonBaoMaSP" style="color: red"></div>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Tên bài viết: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="tenBV" placeholder="Nhập tên sản phẩm" aria-describedby="basic-addon1" required=""></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Mã sản phẩm: </th>
+                    <td><input type="text" class="form-control form-control-lg" name="maSP" placeholder="Bài viết dành cho sản phẩm nào" ></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2" style="text-align: center"><h3>Nội dung bài viết</h3></th>
+                </tr>
+                <tr>
+                    <td colspan="2" id="xemTruoc"></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Đoạn dưới là gì:</th>
+                    <td>
+                        <select id="loai">
+                            <option value="title">Tiêu đề</option>
+                            <option value="content">Nội dung</option>
+                            <option value="img">Link ảnh</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr style="height: 50px">
+                    <td colspan="2"><textarea id="noiDung" style="width: 100%; min-height: 400px;"></textarea></td>
+                </tr>
+                <tr style="height: 50px">
+                    <td ><input type="button" id="btnHetDoan" value="Hết đoạn"></td>
+                    <td><input style="float: right;" type="submit"  id="themSP" name="themBV" value="Thêm bài viết"></td>
+                </tr>
+            </table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+            <div class="hidden">
+                <input type="text" id="soDoan" name="soDoan" value="0">
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<?php
+$vitri=6;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var idCTBV = 0;
+        $("#btnHetDoan").click(function () {
+            var loai = $("#loai").val();
+            var noiDung = $("#noiDung").val();
+            switch (loai) {
+                case "title":
+                    var noiDungHT = "<h4 style='color: red; font-weight: bold'>"+noiDung+"</h4>";
+                    $("#xemTruoc").append(noiDungHT);
+                    var noiDungLuu = "<textarea name='ctbv"+ idCTBV+"'>"+ loai+ "||" + noiDung + "</textarea>";
+                    $(".hidden").append(noiDungLuu);
+                    idCTBV++;
+                    $("#soDoan").val(idCTBV);
+                    break;
+                case "content":
+                    var noiDungHT = "<p>"+noiDung+"</p>";
+                    $("#xemTruoc").append(noiDungHT);
+                    var noiDungLuu = "<textarea name='ctbv"+ idCTBV+"'>"+ loai+ "||" + noiDung + "</textarea>";
+                    $(".hidden").append(noiDungLuu);
+                    idCTBV++;
+                    $("#soDoan").val(idCTBV);
+                    break;
+                case "img":
+                    var noiDungHT = "<img style='max-width: 100%' src='"+noiDung+"'>";
+                    $("#xemTruoc").append(noiDungHT);
+                    var noiDungLuu = "<textarea name='ctbv"+ idCTBV+"'>"+ loai+ "||" + noiDung + "</textarea>";
+                    $(".hidden").append(noiDungLuu);
+                    idCTBV++;
+                    $("#soDoan").val(idCTBV);
+                    break;
+            }
+
+        });
+
+        $('#listSP').change(function () {
+            var menu= $('#listSP').val();
+            if (menu == "Điện thoại") {
+                window.location.href = 'http://localhost/tmobile/nhan-vien/themsp';
+            }else{
+                if (menu == "Phụ kiện") {
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/themPhuKien';
+                }else{
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/themSuaChua';
+                }
+            }
+
+        });
+        $("#inputMau").change(function () {
+            var listMau = $("#inputMau").val().split(",");
+            var listMauChuan=[];
+            var j =0;
+            for (var i=0; i<listMau.length; i++){
+                if (listMau[i].trim().length >=1){
+                    listMauChuan[j] = listMau[i].trim().replace(/ /g,"_");
+                    j++;
+                }
+            }
+            console.log(listMauChuan);
+
+            $("#addImg").empty();
+            for (var i=0; i<listMauChuan.length; i++){
+                var str ='Ảnh màu '+listMauChuan[i].trim()+'<input type="file" class="" name="file_'+listMauChuan[i].trim()+'" aria-describedby="basic-addon1" required="">';
+                $("#addImg").append(str);
+            }
+        });
+        // $("#maSP").change(async function () {
+        //     var maSPC = $("#maSP").val();
+        //     var loaiSPC = $("#listSP").val();
+        //     await $.get("http://localhost/tmobile/nhan-vien/checkMaSP",{maSP:maSPC,loaiSP:loaiSPC},function (data) {
+        //         $(".thonBaoMaSP").html(data);
+        //     });
+        //     var thongBaoKT = $(".thonBaoMaSP").html();
+        //     if (thongBaoKT.length >0){
+        //         $('#themSP').prop('disabled', true);
+        //     }else{
+        //         $('#themSP').prop('disabled', false);
+        //     }
+        // });
+    });
+</script>

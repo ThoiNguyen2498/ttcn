@@ -1,0 +1,40 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Xóa sản phẩm
+        </h1>
+        <ol class="breadcrumb">
+            <p id="thongBao"><?php echo $ketQua;?></p>
+            Bạn sẽ được tự động điều hướng quay lại!
+            Nếu không quay lại nhấn vào <a href="http://localhost/tmobile/nhan-vien/showsp">đây.</a>
+        </ol>
+    </div>
+</div>
+<?php
+$vitri=2;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#listSP').change(function () {
+            var menu= $('#listSP').val();
+            if (menu == "Điện thoại") {
+                window.location.href = 'http://localhost/tmobile/nhan-vien/showsp';
+            }else{
+                if (menu == "Phụ kiện") {
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/showsp?danhMuc=PhuKien';
+                }else{
+                    window.location.href = 'http://localhost/tmobile/nhan-vien/showsp?danhMuc=SanPhamSuaChua';
+                }
+            }
+
+        });
+    });
+    if ($("#thongBao").html().length <=0){
+        alert("Opp..! Có lỗi gì, hãy liên hệ với nhà phát triển website!");
+    }else{
+        history.back();
+        history.go(-1);
+    }
+
+</script>

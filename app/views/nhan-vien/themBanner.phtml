@@ -1,0 +1,87 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Thêm mới banner
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a class="menu" href="#">Quản lý banner</a></li>
+            <li class="active">Thêm mới banner</li>
+        </ol>
+    </div>
+    <div id="page-inner">
+        <form class="breadcrumb" method="post" enctype="multipart/form-data">
+            <table width="100%" id="tblThemTT">
+                <tr style="height: 50px">
+                    <th colspan="2"><h2 style="">Thêm mới banner</h2></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2" style="background: #8abcae; padding: 5px"><h3>Vị trí 1:</h3></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hình ảnh: <i style="color: red">*</i></th>
+                    <td><input type="file" name="file1[]" multiple ></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">link: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="link1"  placeholder="Nhập link (Phân cách bởi dấu ',' thứ tự theo thứ tự chọn hình ảnh)"></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2" style="background: #8abcae; padding: 5px"><h3>Vị trí 2:</h3></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hình ảnh: <i style="color: red">*</i></th>
+                    <td><input type="file" name="file2[]" multiple ></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">link: <i style="color: red">*</i></th>
+                    <td><input type="text" id="link" class="form-control form-control-lg" name="link2"  placeholder="Nhập link (Phân cách bởi dấu ',' thứ tự theo thứ tự chọn hình ảnh)"></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2" style="background: #8abcae; padding: 5px"><h3>Vị trí 3:</h3></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hình ảnh: <i style="color: red">*</i></th>
+                    <td><input type="file" name="file3[]" multiple ></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">link: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="link3"  placeholder="Nhập link (Phân cách bởi dấu ',' thứ tự theo thứ tự chọn hình ảnh)"></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th colspan="2" style="background: #8abcae; padding: 5px"><h3>Vị trí 4:</h3></th>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">Hình ảnh: <i style="color: red">*</i></th>
+                    <td><input type="file" name="file4[]" multiple ></td>
+                </tr>
+                <tr style="height: 50px">
+                    <th width="150px">link: <i style="color: red">*</i></th>
+                    <td><input type="text" class="form-control form-control-lg" name="link4"  placeholder="Nhập link (Phân cách bởi dấu ',' thứ tự theo thứ tự chọn hình ảnh)"></td>
+                </tr>
+
+                <tr style="height: 50px">
+                    <th colspan="2">
+                        <input style="width: 100%;" type="submit"  id="luuThongtin" name="luuThongTin" value="THÊM BANNER">
+                    </th>
+                </tr>
+            </table>
+            <div style="color: red">
+                <?php if (isset($ketQua)) echo $ketQua;?>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<?php
+$vitri=7;
+?>
+<?php $this->assets->outputJs('js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.soLuong').change(function () {
+            console.log($('.soLuong').parents("tr").children("#link"));
+        })
+    });
+</script><?php
